@@ -1,4 +1,4 @@
-# Rax: lift heavy things with ease inside your Rackspace
+## Rax: a high definition command line for the rackspace API
 
 Rax is a command line interface and API to rackspace. You can use it
 to easily build and manage infrastructure for great good.
