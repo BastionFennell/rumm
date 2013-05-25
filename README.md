@@ -13,7 +13,13 @@ Authenticate with rackspace
       password: ****
       logged in, credentials written to ~/.netrc
       
- 
+
+Now we can see the list of servers we have available:
+
+    $ rax show servers
+    you don't have any servers, but you can create on with:
+    rax create server
+
 Create the server:
 
     rackspace create server

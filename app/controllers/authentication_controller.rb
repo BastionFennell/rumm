@@ -3,6 +3,8 @@ require 'json'
 
 class AuthenticationController
 
+  requires :console
+
   def login
 #    username = console.ask "username: "
  #   password = console.ask_passord "password:"
@@ -14,6 +16,7 @@ class AuthenticationController
       https.request req
     end
     Map(JSON.parse res.body)
+
   end
 
   def logout
