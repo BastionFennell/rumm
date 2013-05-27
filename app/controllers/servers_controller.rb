@@ -10,7 +10,8 @@ class ServersController
   end
 
   def create
-    compute.servers.create name: generate_name
+    options = {name: generate_name, flavor_id: 2, image_id: '9922a7c7-5a42-4a56-bc6a-93f857ae2346'}
+    compute.servers.create options
   end
 
   def destroy
