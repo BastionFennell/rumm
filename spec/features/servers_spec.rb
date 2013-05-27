@@ -7,15 +7,18 @@ describe "using the server api" do
       File.open(home.join('.netrc'), "w") do |f|
         f.chmod 0600
         f.puts "machine api.rackspace.com"
-        f.puts "  login <rackspace-login>"
-        f.puts "  password <rackspace-api-token>"
-        # f.puts "  login #{ENV['RACKSPACE_LOGIN']}"
-        # f.puts "  password #{ENV['RACKSPACE_API_TOKEN']}"
+        f.puts "  login #{ENV['RACKSPACE_LOGIN'] || '<rackspace-username>'}"
+        f.puts "  password #{ENV['RACKSPACE_API_TOKEN'] || '<rackspace-api-token>'}"
       end
     end
-    context "when I list all my servers" do
+    context "when I list all my servers (and I don't have any')" do
       When {VCR.use_cassette('show-servers') {run "rax show servers"}}
-      Then {all_stdout =~ /you don't have any server'/}
+      Then {all_stdout =~ /you don't have any servers/}
+      And {last_exit_status.should eql 0}
+    end
+    context "when I create a server" do
+      When {VCR.use_cassette('create-server') {run "rax create server"}}
+      Then {all_stdout =~ /created server (\w+)/}
       And {last_exit_status.should eql 0}
     end
   end
