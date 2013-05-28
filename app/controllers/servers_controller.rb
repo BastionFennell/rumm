@@ -1,4 +1,4 @@
-class ServersController
+class ServersController < MVCLI::Controller
   requires :compute
 
   def index
@@ -10,12 +10,18 @@ class ServersController
   end
 
   def create
-    options = {name: generate_name, flavor_id: 2, image_id: '9922a7c7-5a42-4a56-bc6a-93f857ae2346'}
+    options = {
+      name: generate_name,
+      flavor_id: 2,
+      image_id: '9922a7c7-5a42-4a56-bc6a-93f857ae2346'
+    }
     compute.servers.create options
   end
 
   def destroy
-    server.destroy
+    server.tap do |s|
+      s.destroy
+    end
   end
 
   private
