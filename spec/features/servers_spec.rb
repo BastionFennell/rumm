@@ -21,6 +21,15 @@ describe "using the server api" do
       Then {all_stdout =~ /created server (\w+)/}
       And {last_exit_status.should eql 0}
     end
+    context "when I show a server" do
+      When {VCR.use_cassette('show-server') {run "rax show server divine-reef"}}
+      Then {last_exit_status.should eql 0}
+    end
+    context "when I destroy a server that exists" do
+      When {VCR.use_cassette('destroy-server') {run "rax destroy server divine-reef"}}
+      Then {all_stdout =~ /destruction/}
+      And {last_exit_status.should eql 0}
+    end
   end
   context "without credentials"
 end
