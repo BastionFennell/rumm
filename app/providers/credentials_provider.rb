@@ -4,7 +4,7 @@ class CredentialsProvider
 
   def value
     if creds = Netrc.read['api.rackspace.com']
-      Map(username: creds.first, api_key: creds.last)
+      Map(username: creds.first, api_key: creds.last, rackspace_region: :ord)
     else
       fail Rax::LoginRequired, "login required"
     end
