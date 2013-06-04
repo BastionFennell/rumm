@@ -21,6 +21,10 @@ describe "using the server api" do
       Then {all_stdout =~ /created server (\w+)/}
       And {last_exit_status.should eql 0}
     end
+    #context "when I ssh into a server" do
+    #  When {VCR.use_cassette('show-server') {run "rax ssh divine-reef"}}
+    #  Then {all_stdout =~ /test success/}
+    #end
     context "when I show a server" do
       When {VCR.use_cassette('show-server') {run "rax show server divine-reef"}}
       Then {last_exit_status.should eql 0}

@@ -36,12 +36,16 @@ end
 require "aruba/in_process"
 require_relative "../app"
 Aruba.process = Aruba::InProcess
-Aruba::InProcess.main_class = Class.new do
+class Aruba::InProcess
+  attr_reader :stdin
+  self.main_class = Class.new do
+
   def initialize(argv, stdin=STDIN, stdout=STDOUT, stderr=STDERR, kernel=Kernel)
     @argv, @stdin, @stdout, @stderr, @kernel = argv, stdin, stdout, stderr, kernel
   end
 
   def execute!
     @kernel.exit Rax::App.main @argv, @stdin, @stdout, @stderr
+  end
   end
 end

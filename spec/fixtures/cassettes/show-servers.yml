@@ -78,4 +78,35 @@ http_interactions:
       string: '{"servers": []}'
     http_version: 
   recorded_at: Sat, 25 May 2013 01:55:07 GMT
+- request:
+    method: get
+    uri: https://ord.loadbalancers.api.rackspacecloud.com/v1.0/829771/loadbalancers.json?
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog/1.11.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - 116366a2-74c0-4a43-9d06-82b9f0f0dbf0
+  response:
+    status:
+      code: 401
+      message: 
+    headers:
+      Via:
+      - 1.1 Rackspace Cloud Load Balancer API v1.17.29 (Repose/2.5.0)
+      Content-Length:
+      - '0'
+      Server:
+      - Jetty(8.0.y.z-SNAPSHOT)
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Mon, 03 Jun 2013 15:44:06 GMT
 recorded_with: VCR 2.5.0
