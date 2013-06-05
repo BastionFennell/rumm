@@ -7,10 +7,9 @@ class AuthenticationController < MVCLI::Controller
   requires :user
 
   def login
-    #Check if the .netrc is already in use
-    #if(.netrc is in use)
+    #Check if they're already logged in
+    #if(they're logged in)
     # prompt("you sure bout that?")
-    # set boolean to true or false
     login_info = user
     username = login_info.name
     password = login_info.password
@@ -36,9 +35,6 @@ class AuthenticationController < MVCLI::Controller
     write_to_rc username, user_credentials["RAX-KSKEY:apiKeyCredentials"].apiKey, true
 
     user_info
-
-    #Write to .netrc
-
   end
 
   def logout
@@ -59,7 +55,9 @@ class AuthenticationController < MVCLI::Controller
 
   def write_to_rc name, key, overwrite
     n = Netrc.read
-    n["api.rackspace.com"] = name, key
+    n["api.rackspace.com"].delete
     n.save
+
+
   end
 end

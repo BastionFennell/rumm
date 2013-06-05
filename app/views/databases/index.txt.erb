@@ -1,0 +1,12 @@
+<% if empty? %>
+you don't have any databases on this instance, but you can create one by running:
+  rax create database on instance (instance_name)
+<% else %>
+<% each do |database| %>
+<%= database.name %> -> id: <%= database.id %>, status: <%= database.state %><%= "(#{database.progress}%)" unless database.state == 'ACTIVE' %>
+<% end %>
+<% end %>
+
+dump
+
+<%= self.inspect %>

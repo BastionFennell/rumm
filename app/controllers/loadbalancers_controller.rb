@@ -1,5 +1,6 @@
 class LoadbalancersController < MVCLI::Controller
   requires :loadbalancers
+  requires :naming
 
   def index
     loadbalancers.all
@@ -13,14 +14,15 @@ class LoadbalancersController < MVCLI::Controller
     #Add personalization options
     #Figure out what to do about load balancer address
     options = {
-      name: "holder",
+      name: naming.generate_name(nil, nil),
       port: 80,
       protocol: "HTTP",
       virtual_ips: [{
         type: "PUBLIC",
       }],
       nodes: [{
-        address: "198.61.221.219",
+        address: params[:ip_address],
+        #address: "198.61.221.219",
         port: 80,
         condition: "ENABLED"
       }]
