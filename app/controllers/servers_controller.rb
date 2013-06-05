@@ -1,5 +1,6 @@
 class ServersController < MVCLI::Controller
   requires :compute
+  requires :naming
 
   def index
     compute.servers.all
@@ -11,16 +12,15 @@ class ServersController < MVCLI::Controller
   end
 
   def create
-    #Find the ssh key
     #Add personalization
     options = {
-      name: generate_name,
+      name: naming.generate_name(nil, nil),
       flavor_id: 2,
       image_id: '9922a7c7-5a42-4a56-bc6a-93f857ae2346',
       private_key_path: "~/.ssh/id_rsa",
       public_key_path: "~/.ssh/id_rsa.pub"
     }
-    p "Initiating creation of #{options[:name]}"
+    p "Initializing creation of #{options[:name]}"
     #Progress bar
     test = compute.servers.bootstrap options
     p "Creation complete!"
