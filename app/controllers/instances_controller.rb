@@ -13,7 +13,7 @@ class InstancesController < MVCLI::Controller
 
   def create
     options = {
-      name: naming.generate_name,
+      name: naming.generate_name('d', 'i'),
       flavor_id: 1,
       volume_size: 1,
     }
@@ -30,9 +30,5 @@ class InstancesController < MVCLI::Controller
 
   def instance
     index.find {|i| i.name == params[:id]} or fail Fog::Errors::NotFound
-  end
-
-  def generate_name
-    "laughing-barrel"
   end
 end
