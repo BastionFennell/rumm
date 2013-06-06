@@ -15,7 +15,7 @@ class NamingProvider
   private
 
   def get_adj
-    a = rand(20753)
+    a = rand(20748)
     counter = 0
     dict = File.new(File.expand_path "adj.txt")
     dict.each_line do |line|
@@ -40,7 +40,7 @@ class NamingProvider
 
   def get_adj_bound letter
     higher = true
-    upper = 20753
+    upper = 20748
     lower = 0
     a = 0
     word = ""
