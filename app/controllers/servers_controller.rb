@@ -1,6 +1,7 @@
 class ServersController < MVCLI::Controller
   requires :compute
   requires :naming
+  requires :command
 
   def index
     compute.servers.all
@@ -14,17 +15,17 @@ class ServersController < MVCLI::Controller
   def create
     #Add personalization
     options = {
-      name: naming.generate_name(nil, nil),
+      name: naming.generate_name('s', 's'),
       flavor_id: 2,
       image_id: '9922a7c7-5a42-4a56-bc6a-93f857ae2346',
       private_key_path: "~/.ssh/id_rsa",
       public_key_path: "~/.ssh/id_rsa.pub"
     }
-    p "Initializing creation of #{options[:name]}"
+    command.output.puts "--> bootstrapping server #{options[:name]}"
     #Progress bar
-    test = compute.servers.bootstrap options
-    p "Creation complete!"
-    test
+    server = compute.servers.bootstrap options
+    command.output.puts "    done."
+    return server
   end
 
   def destroy
