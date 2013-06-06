@@ -14,7 +14,7 @@ class LoadbalancersController < MVCLI::Controller
     #Add personalization options
     #Figure out what to do about load balancer address
     options = {
-      name: naming.generate_name(nil, nil),
+      name: naming.generate_name('l', 'b'),
       port: 80,
       protocol: "HTTP",
       virtual_ips: [{
