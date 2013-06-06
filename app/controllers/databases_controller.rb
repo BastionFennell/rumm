@@ -19,14 +19,15 @@ class DatabasesController < MVCLI::Controller
   def create
     d = databases
     d.instance = instance
-    d.create ({name: "naming"})
+    d.create ({name: naming.generate_name("d", "b")})
   end
 
   def destroy
     d = databases
     d.instance = instance
-    find_database_in(d).destroy
-    :id
+    db = find_database_in(d)
+    db.destroy
+    return db
   end
 
   private
@@ -34,6 +35,7 @@ class DatabasesController < MVCLI::Controller
   def instance
     instances.find{|i| i.name == params[:instance_id]} or fail Fog::Errors::NotFound
   end
+
 
   def find_database_in instance
     instance.find{|d| d.name == params[:id]} or fail Fog::Errors::NotFound
