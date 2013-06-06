@@ -32,32 +32,16 @@ class AuthenticationController < MVCLI::Controller
 
     user_credentials = Map(JSON.parse res.body)
 
-    write_to_rc username, user_credentials["RAX-KSKEY:apiKeyCredentials"].apiKey, true
+    netrc = Netrc.read
+    netrc['api.rackspace.com'] = username, user_credentials["RAX-KSKEY:apiKeyCredentials"].apiKey
+    netrc.save
 
     user_info
   end
 
   def logout
-    if n = Netrc.read
-      name, pass = n["api.rackspace.com"]
-      if name != "logout" and pass != "logout"
-        n["api.rackspace.com"] = "logout", "logout"
-        n.save
-      else
-        fail Rax::LoginRequired, "You must log in before you can log out"
-      end
-    else
-      fail Rax::LoginRequired, "You must log in before you can log out"
-    end
-  end
-
-  private
-
-  def write_to_rc name, key, overwrite
     n = Netrc.read
-    n["api.rackspace.com"].delete
+    n.delete 'api.rackspace.com'
     n.save
-
-
   end
 end
