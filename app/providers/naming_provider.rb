@@ -17,7 +17,7 @@ class NamingProvider
   def get_adj
     a = rand(20748)
     counter = 0
-    dict = File.new(File.expand_path "adj.txt")
+    dict = File.new(File.expand_path "../naming/adj.txt", __FILE__)
     dict.each_line do |line|
       if counter == a
         return line.delete("\n")
@@ -29,7 +29,7 @@ class NamingProvider
   def get_noun
     a = rand(55875)
     counter = 0
-    dict = File.new(File.expand_path "nouns.txt")
+    dict = File.new(File.expand_path "../naming/nouns.txt", __FILE__)
     dict.each_line do |line|
       if counter == a
         return line.delete("\n")
@@ -53,7 +53,7 @@ class NamingProvider
       end
       a = rand lower..upper
       counter = 0
-      dict = File.new(File.expand_path "adj.txt")
+      dict = File.new(File.expand_path "../naming/adj.txt", __FILE__)
       dict.each_line do |line|
         if counter == a
           word = line.delete("\n")
@@ -86,7 +86,7 @@ class NamingProvider
       end
       a = rand lower..upper
       counter = 0
-      dict = File.new(File.expand_path "nouns.txt")
+      dict = File.new(File.expand_path "../naming/nouns.txt", __FILE__)
       dict.each_line do |line|
         if counter == a
           word = line.delete("\n")
