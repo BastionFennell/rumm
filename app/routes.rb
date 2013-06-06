@@ -32,3 +32,26 @@ match 'update database :id on instance :instance_id' => 'databases#update'
 match 'destroy database :id on instance :instance_id' => 'databases#destroy'
 
 match 'ssh :id' => 'servers#ssh'
+
+match 'show containers' => 'containers#index'
+match 'show container :id' => 'containers#show'
+match 'create container' => 'containers#create'
+match 'update container :id' => 'containers#update'
+match 'destroy container :id' => 'containers#destroy'
+
+match 'show files in container :container_id' => 'files#index'
+match 'show file :id in container :container_id' => 'files#show'
+match 'create file :id in container :container_id' => 'files#create'
+match 'update file :id in container :container_id' => 'files#update'
+match 'destroy file :id in container :container_id' => 'files#destroy'
+match 'download file :id in container :container_id' => 'files#download'
+
+match 'show volumes' => 'volumes#index'
+match 'show volume :id' => 'volumes#show'
+match 'create volume' => 'volumes#create'
+match 'update volume :id' => 'volumes#update'
+match 'destroy volume :id' => 'volumes#destroy'
+
+match 'show attachments on server :server_id' => 'attachments#index'
+match 'attach volume :id to server :server_id' => 'attachments#attach'
+match 'detach volume :id from server :server_id' => 'attachments#detach'
