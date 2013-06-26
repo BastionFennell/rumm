@@ -1,6 +1,6 @@
-## Rax: a high definition command line for the rackspace API
+## Rumm: a tasty tool for pirates and hackers
 
-Rax is a command line interface and API to rackspace. You can use it
+Rumm is a command line interface and API to rackspace. You can use it
 to easily build and manage infrastructure for great good.
 
 
@@ -16,9 +16,9 @@ Authenticate with rackspace
 
 Now we can see the list of servers we have available:
 
-    $ rax show servers
+    $ rumm show servers
     you don't have any servers, but you can create on with:
-    rax create server
+    rumm create server
 
 Create the server:
 

@@ -182,4 +182,33 @@ http_interactions:
         "OS-FLV-EXT-DATA:ephemeral": 0, "disk": 20, "id": "2"}}'
     http_version: 
   recorded_at: Tue, 28 May 2013 20:13:17 GMT
+- request:
+    method: get
+    uri: https://ord.servers.api.rackspacecloud.com/v2/829771/servers/detail
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog/1.11.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - c8e0d8ec-c73d-48c5-9b80-548ef8f40dc4
+  response:
+    status:
+      code: 401
+      message: 
+    headers:
+      Content-Length:
+      - '0'
+      Server:
+      - Jetty(8.0.y.z-SNAPSHOT)
+    body:
+      encoding: UTF-8
+      string: ''
+    http_version: 
+  recorded_at: Wed, 26 Jun 2013 21:44:36 GMT
 recorded_with: VCR 2.5.0

@@ -1,6 +1,6 @@
 <% if empty? %>
 you don't have any servers, but you can create one by running:
-  rax create server
+  rumm create server
 <% else %>
 <% each do |server| %>
 <%= server.name %> -> id: <%= server.id %>, status: <%= server.state %><%= "(#{server.progress}%)" unless server.state == 'ACTIVE' %>, ipv4: <%= server.ipv4_address == '' ? 'not available' : server.ipv4_address %> 

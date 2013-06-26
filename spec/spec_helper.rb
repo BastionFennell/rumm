@@ -1,4 +1,4 @@
-require "rax"
+require "rumm"
 require "vcr"
 require "aruba/api"
 require "rspec-given"
@@ -45,7 +45,7 @@ class Aruba::InProcess
   end
 
   def execute!
-    @kernel.exit Rax::App.main @argv, @stdin, @stdout, @stderr
+    @kernel.exit Rumm::App.main @argv, @stdin, @stdout, @stderr
   end
   end
 end

@@ -1,6 +1,6 @@
 <% if empty? %>
 you don't have any database instances, but you can create one by running:
-  rax create dbinstance
+  rumm create dbinstance
 <% else %>
 <% each do |instance| %>
 <%= instance.name %> -> id: <%= instance.id %>, status: <%= instance.state %> 
