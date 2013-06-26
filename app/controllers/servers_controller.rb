@@ -17,9 +17,9 @@ class ServersController < MVCLI::Controller
     options = {
       name: naming.generate_name('s', 's'),
       flavor_id: 2,
-      image_id: '9922a7c7-5a42-4a56-bc6a-93f857ae2346',
-      private_key_path: "~/.ssh/id_dsa",
-      public_key_path: "~/.ssh/id_dsa.pub"
+      image_id: '6a668bb8-fb5d-407a-9a89-6f957bced767', #12.04 LTS
+      private_key_path: "~/.ssh/id_rsa",
+      public_key_path: "~/.ssh/id_rsa.pub"
     }
     command.output.puts "--> bootstrapping server #{options[:name]}"
     #Progress bar
