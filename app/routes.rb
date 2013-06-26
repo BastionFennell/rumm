@@ -9,6 +9,8 @@ match 'create server' => 'servers#create'
 match 'update server :id' => 'servers#update'
 match 'destroy server :id' => 'servers#destroy'
 
+match 'railsify server :id' => 'railsifications#create'
+
 match 'show loadbalancers' => 'loadbalancers#index'
 match 'show loadbalancer :id' => 'loadbalancers#show'
 match 'create loadbalancer' => 'loadbalancers#create'
