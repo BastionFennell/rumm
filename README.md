@@ -8,7 +8,7 @@ to easily build and manage infrastructure for great good.
 
 Authenticate with rackspace
 
-    rackspace login
+    rumm login
       username: joe
       password: ****
       logged in, credentials written to ~/.netrc
