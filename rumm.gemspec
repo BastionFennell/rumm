@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'rax/version'
+require 'rumm/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "rax"
-  spec.version       = Rax::VERSION
+  spec.name          = "rumm"
+  spec.version       = Rumm::VERSION
   spec.authors       = ["Charles Lowell"]
   spec.email         = ["cowboyd@thefrontside.net"]
   spec.description   = %q{Lift heavy things inside your Rackspace}
   spec.summary       = %q{CLI and API for managing Rackspace infrastructure}
-  spec.homepage      = "https://github.com/cowboyd/rax"
+  spec.homepage      = "https://github.com/rackerlabs/rumm"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

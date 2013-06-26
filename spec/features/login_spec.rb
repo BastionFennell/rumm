@@ -11,7 +11,7 @@ describe "logging in" do
   end
   describe "interactively with valid credentials" do
     before do
-      run_interactive "rax login"
+      run_interactive "rumm login"
       type "<username>"
       type "<valid-password>"
       stop_process @interactive
@@ -20,8 +20,8 @@ describe "logging in" do
       last_exit_status.should eq(0), "process failed"
     end
     it "stores the authentication information and service catalog" do
-      @home.join('.raxrc').should exist
-      access = Map(JSON.parse @home.join(".raxrc").read).access
+      @home.join('.rummrc').should exist
+      access = Map(JSON.parse @home.join(".rummrc").read).access
       access.user.name.should eql "cowboyd"
       access.serviceCatalog.first.name.should eql "cloudServers"
     end
