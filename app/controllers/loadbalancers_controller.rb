@@ -1,6 +1,6 @@
 class LoadbalancersController < MVCLI::Controller
   requires :loadbalancers
-  requires :naming
+  requires :command
 
   def index
     loadbalancers.all
@@ -11,23 +11,11 @@ class LoadbalancersController < MVCLI::Controller
   end
 
   def create
-    #Add personalization options
-    #Figure out what to do about load balancer address
-    options = {
-      name: naming.generate_name('l', 'b'),
-      port: 80,
-      protocol: "HTTP",
-      virtual_ips: [{
-        type: "PUBLIC",
-      }],
-      nodes: [{
-        address: params[:ip_address],
-        #address: "198.61.221.219",
-        port: 80,
-        condition: "ENABLED"
-      }]
-    }
-    loadbalancers.create options
+    template = Loadbalancers::CreateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+    loadbalancers.create form.value
   end
 
   def destroy
