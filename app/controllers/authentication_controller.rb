@@ -21,6 +21,8 @@ class AuthenticationController < MVCLI::Controller
     res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |https|
       https.request req
     end
+
+    #TODO check the status code of the request
     user_info = Map(JSON.parse res.body)
 
     uri = URI("https://identity.api.rackspacecloud.com/v2.0/users/#{user_info.access.user.id}/OS-KSADM/credentials/RAX-KSKEY:apiKeyCredentials")
