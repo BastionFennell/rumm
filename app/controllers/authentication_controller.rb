@@ -1,6 +1,7 @@
-require 'net/https'
-require 'json'
-require 'netrc'
+require "net/https"
+require "json"
+require "netrc"
+require "excon"
 
 class AuthenticationController < MVCLI::Controller
 
