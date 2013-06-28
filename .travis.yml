@@ -1,0 +1,8 @@
+rvm:
+  - 2.0.0
+notifications:
+  recipients:
+    - prabhakar.gopalan@rackspace.com
+    - cowboyd@thefrontside.net
+    - hayesmp@thefrontside.net
+    
