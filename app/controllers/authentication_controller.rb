@@ -7,32 +7,25 @@ class AuthenticationController < MVCLI::Controller
   requires :user
 
   def login
-    #Check if they're already logged in
-    #if(they're logged in)
-    # prompt("you sure bout that?")
     login_info = user
     username = login_info.name
     password = login_info.password
 
-    uri = URI('https://identity.api.rackspacecloud.com/v2.0/tokens')
-    req = Net::HTTP::Post.new(uri)
-    req['Content-Type'] = 'application/json'
-    req.body = {auth: {passwordCredentials: {username: username, password: password}}}.to_json
-    res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |https|
-      https.request req
-    end
+    connection = Excon.new('https://identity.api.rackspacecloud.com')
+
+    headers = {'Content-Type' => 'application/json'}
+    body = {auth: {passwordCredentials: {username: username, password: password}}}
+
+    response = connection.post headers: headers, body: body.to_json, path: '/v2.0/tokens'
+
 
     #TODO check the status code of the request
-    user_info = Map(JSON.parse res.body)
+    user_info = Map(JSON.parse response.body)
 
-    uri = URI("https://identity.api.rackspacecloud.com/v2.0/users/#{user_info.access.user.id}/OS-KSADM/credentials/RAX-KSKEY:apiKeyCredentials")
-    req = Net::HTTP::Get.new(uri, initheader = {'X-Auth-Token' => user_info.access.token.id})
-    req['Content-Type'] = 'application/json'
-    res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: true) do |https|
-      https.request req
-    end
+    headers.merge!({'X-Auth-Token' => user_info.access.token.id})
+    response = connection.get headers: headers, path: "/v2.0/users/#{user_info.access.user.id}/OS-KSADM/credentials/RAX-KSKEY:apiKeyCredentials"
 
-    user_credentials = Map(JSON.parse res.body)
+    user_credentials = Map(JSON.parse response.body)
 
     netrc = Netrc.read
     netrc['api.rackspace.com'] = username, user_credentials["RAX-KSKEY:apiKeyCredentials"].apiKey
