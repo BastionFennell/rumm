@@ -19,6 +19,6 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_dependency "mvcli", "~> 0.0.7"
-  spec.add_dependency "fog", "~> 1.11.0"
+  spec.add_dependency "fog", "~> 1.12.0"
   spec.add_dependency "netrc"
 end
