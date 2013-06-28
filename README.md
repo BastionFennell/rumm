@@ -1,4 +1,4 @@
-## Rumm: a tasty tool for pirates and hackers
+## Rumm: a tasty tool for hackers and pirates
 
 [![Gem Version](https://badge.fury.io/rb/rumm.png)](http://badge.fury.io/rb/rumm)
 [![Build Status](https://travis-ci.org/rackerlabs/rumm.png?branch=master)](https://travis-ci.org/rackerlabs/rumm)
