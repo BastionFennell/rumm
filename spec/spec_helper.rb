@@ -48,6 +48,8 @@ VCR.configure do |c|
   c.filter_sensitive_data("<rackspace-api-key>") do |interaction|
     if interaction.response.body =~ /"apiKey":"(\w+)"/
       $1
+    else
+      ENV['RACKSPACE_API_KEY']
     end
   end
 end
