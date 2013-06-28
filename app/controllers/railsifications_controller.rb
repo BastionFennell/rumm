@@ -1,7 +1,6 @@
 class RailsificationsController < MVCLI::Controller
   requires :compute
   requires :naming
-  requires :command
 
   def create
     #add to Gemfile
@@ -33,6 +32,7 @@ class RailsificationsController < MVCLI::Controller
 
     return server
   end
+
 
   private
 
