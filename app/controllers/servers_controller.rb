@@ -1,6 +1,5 @@
 class ServersController < MVCLI::Controller
   requires :compute
-  requires :naming
   requires :command
 
   def index
@@ -13,17 +12,21 @@ class ServersController < MVCLI::Controller
   end
 
   def create
+    template = Servers::CreateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
     #Add personalization
     options = {
-      name: naming.generate_name('s', 's'),
-      flavor_id: 2,
-      image_id: '6a668bb8-fb5d-407a-9a89-6f957bced767', #12.04 LTS
+      name: form.name,
+      flavor_id: form.flavor_id,
+      image_id: form.image_id,
       private_key_path: "~/.ssh/id_rsa",
       public_key_path: "~/.ssh/id_rsa.pub"
     }
     command.output.puts "--> bootstrapping server #{options[:name]}"
     #Progress bar
-    server = compute.servers.bootstrap options
+    server = compute.servers.create options
     command.output.puts "    done."
     return server
   end

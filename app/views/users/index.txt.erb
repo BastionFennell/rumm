@@ -1,0 +1,7 @@
+<% if empty? %>
+You don't have any users yet.
+<% else %>
+<% each do |user| %>
+<%= user.name %>, <%= user.databases.inspect %> 
+<% end %>
+<% end %>
