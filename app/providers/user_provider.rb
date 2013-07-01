@@ -6,7 +6,7 @@ class UserProvider
   def value
     name = get_name
     password = get_password
-    Map(name: name, password: password)
+    Map name: name, password: password
   end
 
   private

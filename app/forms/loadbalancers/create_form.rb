@@ -22,6 +22,8 @@ class Loadbalancers::CreateForm < MVCLI::Form
     validates(:condition, "invalid condition") {|c| ['ENABLED', 'DISABLED'].member? c}
   end
 
+  validates(:port, "port must be between 0 and 65,535") {|port| port >=0 && port < 65535}
+
   validates(:nodes, "at least one node must be enabled") { |nodes|
     nodes.any? {|n| n.condition == 'ENABLED'}
   }

@@ -1,5 +1,4 @@
 class DatabasesController < MVCLI::Controller
-
   requires :instances
   requires :databases
   requires :naming

@@ -5,15 +5,10 @@ http_interactions:
     uri: https://identity.api.rackspacecloud.com/v2.0/tokens
     body:
       encoding: UTF-8
-      string: '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<rackspace-username>","apiKey":"<rackspace-api-key>"}}}'
+      string: '{"auth":{"passwordCredentials":{"username":"<rackspace-username>","password":"<rackspace-password>"}}}'
     headers:
-      User-Agent:
-      - fog/1.11.1
       Content-Type:
       - application/json
-      Accept:
-      - application/json
-      X-Auth-Token: []
   response:
     status:
       code: 200
@@ -22,7 +17,7 @@ http_interactions:
       Server:
       - nginx/0.8.55
       Date:
-      - Fri, 28 Jun 2013 18:45:22 GMT
+      - Fri, 28 Jun 2013 17:28:01 GMT
       Content-Type:
       - application/json
       Connection:
@@ -42,45 +37,42 @@ http_interactions:
         Role that allows a user access to keystone Service methods","name":"compute:default"},{"id":"3","description":"User
         Admin Role.","name":"identity:user-admin"}],"name":"<rackspace-username>","RAX-AUTH:defaultRegion":"ORD"}}}'
     http_version: 
-  recorded_at: Fri, 28 Jun 2013 18:45:22 GMT
+  recorded_at: Fri, 28 Jun 2013 17:28:01 GMT
 - request:
-    method: post
-    uri: https://ord.servers.api.rackspacecloud.com/v2/829771/servers
+    method: get
+    uri: https://identity.api.rackspacecloud.com/v2.0/users/356537/OS-KSADM/credentials/RAX-KSKEY:apiKeyCredentials
     body:
-      encoding: UTF-8
-      string: '{"server":{"name":"silly-saffron","imageRef":"9922a7c7-5a42-4a56-bc6a-93f857ae2346","flavorRef":2,"minCount":1,"maxCount":1,"networks":[{"uuid":"00000000-0000-0000-0000-000000000000"},{"uuid":"11111111-1111-1111-1111-111111111111"}]}}'
+      encoding: US-ASCII
+      string: ''
     headers:
-      User-Agent:
-      - fog/1.11.1
       Content-Type:
-      - application/json
-      Accept:
       - application/json
       X-Auth-Token:
       - <rackspace-api-token>
   response:
     status:
-      code: 202
+      code: 200
       message: 
     headers:
+      Server:
+      - nginx/0.8.55
       Date:
-      - Fri, 28 Jun 2013 18:45:25 GMT
-      Content-Length:
-      - '380'
-      Location:
-      - https://ord.servers.api.rackspacecloud.com/v2/829771/servers/ec463ae7-7e91-4ab0-95ee-84e6b116d5c8
+      - Fri, 28 Jun 2013 17:28:01 GMT
       Content-Type:
       - application/json
-      X-Compute-Request-Id:
-      - req-1944260f-79d3-46cd-ae31-552feebf5bfb
-      Server:
-      - Jetty(8.0.y.z-SNAPSHOT)
+      Connection:
+      - keep-alive
+      vary:
+      - Accept, Accept-Encoding, X-Auth-Token
+      VIA:
+      - 1.0 Repose (Repose/2.3.5)
+      Content-Length:
+      - '98'
+      Front-End-Https:
+      - 'on'
     body:
       encoding: UTF-8
-      string: '{"server": {"OS-DCF:diskConfig": "AUTO", "id": "ec463ae7-7e91-4ab0-95ee-84e6b116d5c8",
-        "links": [{"href": "https://ord.servers.api.rackspacecloud.com/v2/829771/servers/ec463ae7-7e91-4ab0-95ee-84e6b116d5c8",
-        "rel": "self"}, {"href": "https://ord.servers.api.rackspacecloud.com/829771/servers/ec463ae7-7e91-4ab0-95ee-84e6b116d5c8",
-        "rel": "bookmark"}], "adminPass": "LNkXt2MSVp3H"}}'
+      string: '{"RAX-KSKEY:apiKeyCredentials":{"username":"<rackspace-username>","apiKey":"<rackspace-api-key>"}}'
     http_version: 
-  recorded_at: Fri, 28 Jun 2013 18:45:25 GMT
+  recorded_at: Fri, 28 Jun 2013 17:28:02 GMT
 recorded_with: VCR 2.5.0
