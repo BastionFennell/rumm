@@ -27,6 +27,6 @@ class LoadbalancersController < MVCLI::Controller
   private
 
   def balancer
-    index.find {|s| s.name == params[:id]} or fail Fog::Erors::NotFound
+    index.find {|s| s.name == params[:id]} or fail Fog::Errors::NotFound, "no load balancer named #{params[:id]}"
   end
 end
