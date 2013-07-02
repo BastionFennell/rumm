@@ -18,7 +18,9 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.add_dependency "mvcli", "~> 0.0.7"
+  spec.required_ruby_version = ">= 1.9.3"
+
+  spec.add_dependency "mvcli", "~> 0.0.8"
   spec.add_dependency "fog", "~> 1.12.0"
   spec.add_dependency "netrc"
 end

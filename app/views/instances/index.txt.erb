@@ -1,8 +1,8 @@
-<% if empty? %>
+<% if this.empty? %>
 you don't have any database instances, but you can create one by running:
   rumm create dbinstance
 <% else %>
-<% each do |instance| %>
+<% this.each do |instance| %>
 <%= instance.name %> -> id: <%= instance.id %>, status: <%= instance.state %> 
 <% end %>
 <% end %>
