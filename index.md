@@ -3,6 +3,8 @@ layout: default
 title: Your New Jekyll Site
 ---
 
+[Documentation]({{ site.baseurl}}/documentation.html)
+
 ## Section Header
 
 This is some text that will need to be typed.
