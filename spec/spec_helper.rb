@@ -3,9 +3,14 @@ require "vcr"
 require "aruba/api"
 require "rspec-given"
 
-module Rumm::WillType
+module Rumm::SpecHelper
   def will_type(string)
     Aruba::InProcess.main_class.input << _ensure_newline(string)
+  end
+
+  def rumm(command)
+    run_interactive "rumm #{command}"
+    stop_process @interactive
   end
 end
 
@@ -14,7 +19,7 @@ RSpec.configure do |config|
   config.include Aruba::Api, :example_group => {
       :file_path => /spec\/features/
   }
-  config.include Rumm::WillType
+  config.include Rumm::SpecHelper
 
   config.before(:each) do
     @__aruba_original_paths = (ENV['PATH'] || '').split(File::PATH_SEPARATOR)
