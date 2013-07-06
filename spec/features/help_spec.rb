@@ -117,20 +117,30 @@ describe "rumm help" do
   #  no such server named 'does-not-exist'
 
   #> what is error when you're missing an option or the option is invalid?
-  #
+  # e.g.
   #  rumm create loadbalancer --node 10.0.0.1:-100 --node xxx:80 --port -1
-  #  invalid input:
+  #  input:
   #  --port: `-1` is not a valid port number (port >= 0 && port <= 65535)
-  #  --node[0][port] `-100` is not a valid port number (port >= 0 && port <= 65535)
+  #  --nodes[0][port] `-100` is not a valid port number (port >= 0 && port <= 65535)
   #  errors:
-  #  --node[1][address]: 'xxx' -> IPAddr::InvalidAddressError: invalid address
+  #  --nodes[1][address]: 'xxx' -> IPAddr::InvalidAddressError: invalid address
+  Given {rumm "create loadbalancer --node 10.0.0.1:999999 --node xxx:80 --port -1"}
+  Then {output.contains "--port: '-1' is not a valid port number (port >= 0 && port <= 65535)"}
+  Then {output.contains "--node[0][port] '999999' is not a valid port number (port >= 0 && port <= 65535)" }
+  Then {output =~ /--node\[1\]\[address\]: 'xxx' -> .+Error: .+/}
+
 
   #> Show all commands
 
 
-  #> ere is a partial match but no command
+  #> there is a partial match but no command
 
   # rumm show
+  # no command found for 'rum show'. Possible matches are
+  #   rumm show servers
+  #   rumm show server :id
+  #   rumm show dbinstances
+  # ...
 
   #> show a single action / command>
 
