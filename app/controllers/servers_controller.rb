@@ -26,7 +26,7 @@ class ServersController < MVCLI::Controller
     }
     command.output.puts "--> bootstrapping server #{options[:name]}"
     #Progress bar
-    server = compute.servers.create options
+    server = compute.servers.bootstrap options
     command.output.puts "    done."
     return server
   end
