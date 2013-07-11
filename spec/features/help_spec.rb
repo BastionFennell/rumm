@@ -1,10 +1,11 @@
 require "spec_helper"
 
 describe "interactive learning" do
-  Given { pending }
-
+  use_natural_assertions
   describe "the basic help system" do
+    Given { pending }
     Given {rumm "help"}
+
     # Rumm: A tasty tool for hackers and pirates
     #   Rumm provides a command line interface for hacking with Rackspace. The
     #   only thing you'll need to get started is a username and password from
@@ -129,10 +130,10 @@ describe "interactive learning" do
     #  errors:
     #  --nodes[1][address]: 'xxx' -> IPAddr::InvalidAddressError: invalid address
 
-    Given {rumm "create loadbalancer --node 10.0.0.1:999999 --node xxx:80 --port -1"}
-    Then {output.contains "--port: '-1' is not a valid port number (port >= 0 && port <= 65535)"}
-    Then {output.contains "--node[0][port] '999999' is not a valid port number (port >= 0 && port <= 65535)" }
-    Then {output =~ /--node\[1\]\[address\]: 'xxx' -> .+Error: .+/}
+    Given {rumm "create loadbalancer --node 10.0.0.1:999999 --node %%^:80 --port=-1"}
+    Then { stderr.match  "port: port must be between 0 and 65,535" }
+    Then { stderr.match  /nodes\[0\].port: port must be between 0 and 65,535/ }
+    Then { stderr.match  /nodes\[1\].address:/}
   end
 
   #> Show all commands
@@ -149,6 +150,7 @@ describe "interactive learning" do
 
   #> show a single action / command>
   describe "help for a specific command" do
+    Given { pending }
     Given {rumm "help create server"}
 
     # Usage:
