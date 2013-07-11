@@ -3,8 +3,8 @@ require "spec_helper"
 describe "interactive learning" do
   use_natural_assertions
   describe "the basic help system" do
-    Given { pending }
     Given {rumm "help"}
+    Then { stdout.match "Rumm: A tasty tool for hackers and pirates" }
 
     # Rumm: A tasty tool for hackers and pirates
     #   Rumm provides a command line interface for hacking with Rackspace. The
@@ -97,7 +97,10 @@ describe "interactive learning" do
 
     #
     #> With aggretate help topic per controller e.g. one listing for all server commands
+  end
 
+  describe "help in a group" do
+    Given { pending }
     Given {rumm "help servers"}
     # Description:
     #   Rumm allows you to manipulate all of your cloud servers from the command line

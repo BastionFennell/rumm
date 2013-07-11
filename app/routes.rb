@@ -1,6 +1,9 @@
 macro /(-v|--version)/ => "version"
 match 'version' => proc {|cmd| cmd.output << "#{Rumm::VERSION}\n" }
 
+macro /(-h|--help)(.*)/ => "help\\2"
+match 'help' => 'help#show'
+
 match 'login' => 'authentication#login'
 match 'logout' => 'authentication#logout'
 

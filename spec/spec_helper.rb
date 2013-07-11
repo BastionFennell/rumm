@@ -16,6 +16,10 @@ module Rumm::SpecHelper
   def stderr
     all_stderr
   end
+
+  def stdout
+    all_stdout
+  end
 end
 
 RSpec.configure do |config|
