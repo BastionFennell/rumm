@@ -3,10 +3,6 @@ class RailsificationsController < MVCLI::Controller
   requires :naming
 
   def create
-    #add to Gemfile
-    #gem 'knife-solo', '>= 0.3.0pre3'
-    #gem 'berkshelf'
-
     `mkdir chef-kitchen`
     `bundle update`
     execute('cd chef-kitchen && bundle exec knife solo init .')
@@ -31,6 +27,11 @@ class RailsificationsController < MVCLI::Controller
     execute("cd chef-kitchen && bundle exec knife solo cook root@#{server.ipv4_address}")
 
     return server
+  end
+
+  def migrate_data(database_url)#mysql2://<username>:<password>@<dbinstance_hostname>/<database name>
+    execute("scp db/development.sqlite3 root@#{server.ipv4_address}:/home/apps/app1/current/db/development.sqlite3")
+    execute("ssh root@#{server.ipv4_address} 'cd /home/apps/app1/current/db && bundle exec taps server sqlite://development.sqlite3 templogin temppass -d & && bundle exec taps pull #{database_url} http://templogin:temppass@localhost:5000'")
   end
 
   private
