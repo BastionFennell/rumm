@@ -12,6 +12,10 @@ module Rumm::SpecHelper
     run_interactive "rumm #{command}"
     stop_process @interactive
   end
+
+  def stderr
+    all_stderr
+  end
 end
 
 RSpec.configure do |config|
