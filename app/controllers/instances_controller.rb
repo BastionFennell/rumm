@@ -8,7 +8,7 @@ class InstancesController < MVCLI::Controller
   end
 
   def show
-    instance
+    instance.reload
   end
 
   def create
@@ -29,6 +29,6 @@ class InstancesController < MVCLI::Controller
   private
 
   def instance
-    index.find {|i| i.name == params[:id]} or fail Fog::Errors::NotFound
+    @instance ||= index.find {|i| i.name == params[:id]} or fail Fog::Errors::NotFound
   end
 end
