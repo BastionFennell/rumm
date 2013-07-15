@@ -12,6 +12,9 @@
 .documentation h1 a {
   color: #fff;
 }
+.documentation h1 a:hover {
+  text-decoration: underline;
+}
 
 .documentation h2 {
   font-size:24px;
