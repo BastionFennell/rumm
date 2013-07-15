@@ -3,15 +3,17 @@
 <h3>Command</h3>
 
 <pre>
-rumm create server [--name STRING] [--image-id STRING] [--flavor-id STRING]
+rumm create server [--name STRING] [--image-id STRING] [--flavor-id STRING] [--private-key-pathSTRING] [--public-key-pathSTRING]
 </pre>
 
 <h3>Options</h3>
 
 <pre>
--n, --name STRING               # Name to give the new server
--i, --image-id STRING           # Use this VM image
--f, --flavor-id STRING          # Create with the specified flavor
+-n, --name STRING                      # Name to give the new server
+-i, --image-id STRING                  # Use this VM image
+-f, --flavor-id STRING                 # Create with the specified flavor
+    --private-key-path STRING          # Path to your private ssh key
+    --public-key-path STRING           # Path to your public ssh key
 </pre>
 
 <h3>Arguments</h3>
@@ -23,6 +25,10 @@ none
 <h3>Description</h3>
 <p>
   Creates a new server. If a name is not provided, one will be generated automatically. If you want to base the server on an existing image, you will need to specify the image id. Similarly, a flavor id can be specified. The defualt is a 512MB sever running Ubuntu 12.04 LTS. This command will take a few minutes.
+</p>
+
+<p>
+  Rumm assumes that your ssh keys are at ~/.ssh/id_rsa.pub and ~/.ssh/id_rsa. If that is not the case, you will need to sepecify the path to your keys with the public-key-path and private-key-path options.
 </p>
 
 <h3>Examples</h3>
