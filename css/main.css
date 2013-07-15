@@ -7,12 +7,102 @@ html, body { height: 100%; }
 
 body {
   background-color: #FFF;
-  font: 14px Arial, sans-serif;
+  font: 15px "Open Sans", sans-serif;
+  background-color: #fff;
+  text-align: center;
 }
 
-h1 {font-size: 48px;}
-h2 {font-size: 36px;}
-h3 {font-size: 24px;}
-h4 {font-size: 18px;}
+h1 {font-size: 22px; font-weight:100;}
+h2 {font-size: 36px; font-weight:100; color: #222;}
+h3 {font-size: 20px; font-weight:100; color: #222;}
+
+a {
+  color: #f00e31;
+  text-decoration:none;
+}
 
 p {margin: 10px 0;}
+
+pre {
+  color: #fff;
+  font-family: "Droid Sans Mono";
+  background-color: #000;
+  padding: 12px;
+          border-radius: 6px;
+     -moz-border-radius: 6px;
+   -khtml-border-radius: 6px;
+  -webkit-border-radius: 6px;
+  text-align: left;
+  margin: 0 20px;
+  overflow:scroll;
+}
+pre .output { color: #bbb;}
+
+
+.bold {font-weight:bold;}
+.italic {font-style:italic;}
+
+.section {
+  width: 100%;
+  padding: 40px 0;
+}
+
+.inner {
+  width: 800px;
+  margin: -40px auto;
+  padding:40px 0;
+  background-image:none;
+  background-color:inherit;
+            box-shadow: inset 0px 5px 5px 0px rgba(50,50,50,.4);
+}
+
+.no-bottom-margin {
+  padding-bottom:10px;
+}
+
+.header a { margin: 0 22px;}
+
+.redrumm {
+  border-top: 1px solid #f00e31;
+  background-color: #e71d2e;
+  background-image:url('../assets/redrumm.gif');
+  color: #fff;
+}
+
+.greyrumm {
+  background-color: #edf0f1;
+  background-image:url('../assets/greyrumm.gif');
+  border-bottom: 1px solid #d9dbdc;
+  border-top: 1px solid #9d9d9d;
+  margin-bottom:1px;
+  color: #909090;
+}
+
+.white {
+  background-color:#fff;
+  color: #8e8e8e;
+}
+
+.grey-shadow {
+          box-shadow: inset 0px 10px 5px -5px rgba(50,50,50,.4);
+     -moz-box-shadow: inset 0px 10px 5px -5px rgba(50,50,50,.4);
+  -webkit-box-shadow: inset 0px 10px 5px -5px rgba(50,50,50,.4);
+}
+
+
+.red-shadow {
+          box-shadow: inset 0px 10px 5px -5px rgba(171,12,35,.9);
+     -moz-box-shadow: inset 0px 10px 5px -5px rgba(171,12,35,.9);
+  -webkit-box-shadow: inset 0px 10px 5px -5px rgba(171,12,35,.9);
+}
+
+.no-shadow {
+          box-shadow: none;
+     -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.dark {
+  background-color:#282828;
+  color: #999;
+}

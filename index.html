@@ -1,0 +1,81 @@
+---
+layout: default
+title: Rumm - A Tasty Tool for Hackers & Pirates
+---
+
+<div class="section redrumm red-shadow">
+  <div class="inner red-shadow">
+    <h1><span class="bold">Rumm</span> is an extendable command line tool written in Ruby<br>
+    that mkaes managing the Rackspace Cloud <span class="bold italic">easy as pie</span></h1>
+    [screencast]
+  </div>
+</div>
+
+<div class="section white grey-shadow">
+  <div class="inner grey-shadow">
+    <h2>Installation</h2>
+    <p>Rumm is a gem. Install like any other</p>
+    <pre>gem install rumm</pre>
+    <p>Check the version to verify all is wel...</p>
+    <pre>rumm --version
+  <span class="output">0.0.13</span></pre>
+  </div>
+</div>
+
+<div class="section greyrumm grey-shadow">
+  <div class="inner grey-shadow">
+    <h2>Screencasts</h2>
+    coming soon...
+  </div>
+</div>
+
+<div class="section white grey-shadow">
+  <div class="inner no-bottom-margin grey-shadow">
+    <h2>Rumm Basics</h2>
+    <p>Authentication: Before you can use Rumm, you'll need a Rackspace Cloud account. It's free to sign up. Rumm is self-configuring - just use the <span class="italic">login</span> command.</p>
+
+<pre>
+rumm login
+  <span class="output">username: rstevenson
+  password: *********
+  logged in, credentials written to ~/.netrc</span>
+</pre>
+
+    <p>After logging in for hte first tie, Rumm will save your API credentials in ~/.netrc.</p>
+    <p>You now have access to all of your Rackspace Cloud assets - servers, databases, files, images, etc.</p>
+
+<pre>
+rumm create server
+  <span class="output">created server divine-reef
+  id: 52415800-8b69-11e0-9b19-734f565bc83b, hostId: e4d909c290d0fb1ca068ffaddf22cbd0, ip: 67.23.10.138, image: CentOS 5.2</span>
+
+rumm show servers
+  <span class="output">output</span>
+</pre>
+    <p>For a complete list of available commands, please see the <a href="{{ site.baseurl }}/documentation.html">Documentation</a>.</p?
+  </div>
+</div>
+
+<div class="section white no-shadow">
+  <div class="inner no-shadow">
+    <h2>Under the Hood</h2>
+    <p>Rumm is built on the <a href="http://github.com/cowboyd/mvcli">MVCLI framework</a>. Much like Ruby on Rails was extracted from the development of Basecamp, MVCLI was extracted from the development of Rumm. MVCLI can be thought of as "Rails for command line tools", and consists of a MVC-like Ruby framework that Rails developers will find familiar.</p>
+
+    <p>The heavy lifting of the Rackspace OpenStack API is handled by <a href="http://fog.io">fog</a>.</p>
+  </div>
+</div>
+
+<div class="section greyrumm grey-shadow">
+  <div class="inner grey-shadow">
+    <h2>Plugins</h2>
+    <p>But wait, there's more! MVCLI was built from the ground up to allow for plugin development. Much like a Rails Engine, an MVCLI plugin is a gem that has its own models, views and controllers that can be used to extend the functionality of any MVCLI application, including Rumm. 
+  </div>
+</div>
+
+<div class="section white grey-shadow">
+  <div class="inner grey-shadow">
+    <h2>Contribute to Rumm</h2>
+    <p>Rumm is an open source project and welcomes contributions. The source code is on GitHub and you can use GitHub issues to report bugs.</p>
+    <p>For more infromation regarding Rumm, please contact <a href="mailto:prabhakar.gopalan@rackspace.com">Prabhakar Gopalan</a>.</p>
+  </div>
+</div>
