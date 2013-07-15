@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm destroy node
+rumm destroy node ID on loadbalancer LOADBALANCER_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,24 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+ID: STRING                       # ID of the node to show
+LOADBALANCER_ID: STRING          # Name of the loadbalancer that contains the node requested
 </pre>
 
 <h3>Description</h3>
-Destroys a node.
+Destroys a the specified node for the named load balancer.
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 <pre>
-rumm destroy node
-...
+rumm show nodes on loadbalancer loamy-bradypodidae
+  <span class="output">id: 390579
+  id: 390581
+  id: 390583</span>
+
+rumm destroy node 390579 on loadbalancer loam7-bradypodidae
+
+rumm show nodes on loadbalancer loamy-bradypodidae
+  <span class="output">id: 390581
+  id: 390583</span>
 </pre>

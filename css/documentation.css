@@ -1,3 +1,7 @@
+li {
+  list-style-type: none; margin-left:20px;
+}
+
 .documentation {
   text-align:left;
 }
@@ -33,6 +37,7 @@ pre {
   background-color: #e6e6e6;
   border: 1px solid #bbb;
   color: #000;
+  font-size:12px;
 }
 
 pre .output { color: #888;}

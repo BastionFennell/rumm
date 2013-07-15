@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm show nodes
+show nodes on loadbalancer LOADBALANCER_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,17 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+LOADBALANCER_ID          # The name of the load balancer that owns the nodes to be listed
 </pre>
 
 <h3>Description</h3>
-Shows all the nodes.
+Shows all the nodes on the named load balancer.
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 <pre>
-rumm show nodes
-...
+rumm show nodes on loadbalancer loamy-bradypodidae
+  <span class="output">id: 390579
+  id: 390581
+  id: 390583</span>
 </pre>

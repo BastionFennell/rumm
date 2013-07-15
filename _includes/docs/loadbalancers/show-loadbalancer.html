@@ -21,9 +21,12 @@ ID: STRING          # Name of the load balancer to show
 <h3>Description</h3>
 <p>Shows the specified load balancer.</p>
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 <pre>
-rumm show loadbalancer
-...
+rumm show loadbalancer located-bruce
+  <span class="output">located-bruce: 154461 (ACTIVE)
+    RANDOM
+    created: {"time"=>"2013-07-15T19:36:00Z"}
+    protocol: HTTP</span>
 </pre>

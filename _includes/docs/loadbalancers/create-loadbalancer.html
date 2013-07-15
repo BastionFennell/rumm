@@ -3,19 +3,18 @@
 <h3>Command</h3>
 
 <pre>
-rumm create loadbalancer [--name STRING] [--port INTEGER] [--protocol STRING] [--virtual-ips STRING]
+rumm create loadbalancer [--name STRING] [--port INTEGER] [--protocol STRING] [--virtual-ip TYPE][...] --node HOST:PORT:TYPE:CONDITION[...]
 </pre>
 
 <h3>Options</h3>
 
 <pre>
-    , --name                 # The name of the load balancer
-    , --port                 # The port of the load balancer
-    , --protocol             # The protocol to be used
-    , --virtual-ips          # A list of virtual IPs to be used
-                             #  arguments:
-    , --node                 # A node for the load balaner
-                             #  arguments:
+--name                 # The name of the load balancer
+--port                 # The port of the load balancer
+--protocol             # The protocol to be used
+--virtual-ip           # Virtual IP type
+--node                 # A node for the load balaner
+                       #   node arguments: host, port, type, condition
 </pre>
 
 <h3>Arguments</h3>
@@ -28,12 +27,43 @@ none
 <p>
   Creates a new loadbalancer. If the load balancer is not named, a name will be generated automatically. The default port is 80, and hte default protocol is HTTP.
 </p>
-<p>The available protocols are HTTP, and ??</p>
-<p>The available virtual IP types are PUBLIC and SERVICENET.</p>
+<p>The folllowing protocols are available (HTTP is default):</p>
+<ul>
+  <li>DNS_TCP</li>
+  <li>DNS_UDP</li>
+  <li>FTP</li>
+  <li>HTTP</li>
+  <li>HTTPS</li>
+  <li>IMAPS</li>
+  <li>IMAPv2</li>
+  <li>IMAPv3</li>
+  <li>IMAPv4</li>
+  <li>LDAP</li>
+  <li>LDAPS</li>
+  <li>MYSQL</li>
+  <li>POP3</li>
+  <li>POP3S</li>
+  <li>SFTP</li>
+  <li>SMTP</li>
+  <li>TCP</li>
+  <li>TCP_CLIENT_FIRST</li>
+  <li>UDP</li>
+  <li>UDP_STREAM</li>
+</ul>
 
-<h3>Example</h3>
+<p>The available virtual IP types are PUBLIC (default) and SERVICENET.</p>
+<p>Each node must be of a type primary (default) or secondary.</p>
+<p>Each node must have a condition specified - enabled (default) or disabled.</p>
+
+<h3>Examples</h3>
 
 <pre>
 rumm create loadbalancer --node 10.0.0.1:80
-...
+  <span class="output">created load balancer: located-bruce</span>
+
+rumm create loadbalancer --node 166.78.114.25:80 --node 166.78.111.23:80 --node 198.61.239.55:80
+  <span class="output">created load balancer: lovesick-broadloom</span>
+
+rumm create loadbalancer --name search-balancer --port 8080 --protocol HTTP --virtual-ip PUBLIC --virtual-ip SERVICENET --node google.com:80:primary:enabled --node bing.com:80:secondary:disabled
+  <span class="output">created load balancer: search-balancer</span>
 </pre>
