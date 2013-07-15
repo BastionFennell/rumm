@@ -16,7 +16,6 @@ match 'update server :id' => 'servers#update'
 match 'destroy server :id' => 'servers#destroy'
 
 match 'railsify server :id' => 'railsifications#create'
-match 'migrate database' => 'railsifications#migrate_data'
 
 match 'show loadbalancers' => 'loadbalancers#index'
 match 'show loadbalancer :id' => 'loadbalancers#show'
