@@ -3,13 +3,15 @@
 <h3>Command</h3>
 
 <pre>
-rumm create server
+rumm create server [--name STRING] [--image-id STRING] [--flavor-id STRING]
 </pre>
 
 <h3>Options</h3>
 
 <pre>
-none
+-n, --name STRING               # Name to give the new server
+-i, --image-id STRING           # Use this VM image
+-f, --flavor-id STRING          # Create with the specified flavor
 </pre>
 
 <h3>Arguments</h3>
@@ -19,11 +21,19 @@ none
 </pre>
 
 <h3>Description</h3>
-Creates a new server.
+<p>
+  Creates a new server. If a name is not provided, one will be generated automatically. If you want to base the server on an existing image, you will need to specify the image id. Similarly, a flavor id can be specified. The defualt is a 512MB sever running Ubuntu 12.04 LTS. This command will take a few minutes.
+</p>
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 <pre>
 rumm create server
-...
+  <span class="output">--> bootstrapping server smoggy-shigellosis</span>
+
+rumm create server --name rumm-example-server
+  <span class="output">--> bootstrapping server rumm-example-server</span>
+
+rumm create server --image-id 9922a7c7-5a42-4a56-bc6a-93f857ae2346 --flavor-id 3
+  <span class="output">--> bootstrapping server happy-holiday</span>
 </pre>

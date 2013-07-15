@@ -27,10 +27,12 @@
 }
 
 pre {
-  background-color: #ddd;
+  background-color: #e6e6e6;
   border: 1px solid #bbb;
   color: #000;
 }
+
+pre .output { color: #888;}
 
 .spacer{
   border-bottom: 1px solid #ddd;

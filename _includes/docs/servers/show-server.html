@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm show server
+rumm show server ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,19 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+ID: STRING          # Name of the server to show
 </pre>
 
 <h3>Description</h3>
-Shows a server.
+<p>Shows the attributes of the sever with the name specified by ID.</p>
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 <pre>
-rumm show server
-...
+rumm show server sorrel-shantung
+  <span class="output">sorrel-shantung: f89c4f57-f66b-4a14-aae2-e3dedf7f59b2 (ACTIVE)
+    Ubuntu 13.04 (Raring Ringtail)  512MB Standard Instance
+    created: 2013-07-01T15:38:15Z
+    ipv4: 166.78.111.48
+    ipv6: 2001:4801:7817:72:2dc2:cd85:ff10:a64a</span>
 </pre>
