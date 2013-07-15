@@ -3,13 +3,19 @@
 <h3>Command</h3>
 
 <pre>
-rumm create loadbalancer
+rumm create loadbalancer [--name STRING] [--port INTEGER] [--protocol STRING] [--virtual-ips STRING]
 </pre>
 
 <h3>Options</h3>
 
 <pre>
-none
+    , --name                 # The name of the load balancer
+    , --port                 # The port of the load balancer
+    , --protocol             # The protocol to be used
+    , --virtual-ips          # A list of virtual IPs to be used
+                             #  arguments:
+    , --node                 # A node for the load balaner
+                             #  arguments:
 </pre>
 
 <h3>Arguments</h3>
@@ -19,11 +25,15 @@ none
 </pre>
 
 <h3>Description</h3>
-Creates a new loadbalancer.
+<p>
+  Creates a new loadbalancer. If the load balancer is not named, a name will be generated automatically. The default port is 80, and hte default protocol is HTTP.
+</p>
+<p>The available protocols are HTTP, and ??</p>
+<p>The available virtual IP types are PUBLIC and SERVICENET.</p>
 
 <h3>Example</h3>
 
 <pre>
-rumm create loadbalancer
+rumm create loadbalancer --node 10.0.0.1:80
 ...
 </pre>
