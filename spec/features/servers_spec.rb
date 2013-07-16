@@ -17,8 +17,11 @@ describe "using the server api" do
       And {last_exit_status.should eql 0}
     end
     context "when I create a server" do
+      Given do
+        `echo -e "y\n" | ssh-keygen -t rsa -C "test@example.com" -N "testing" -f "#{File.expand_path "~/.ssh/id_rsa"}"`
+      end
       When {VCR.use_cassette('create-server') {run "rumm create server --name silly-saffron"}}
-      Then {all_stdout =~ /created server (\w+)/}
+      Then {all_stdout =~ /created server/}
       And {last_exit_status.should eql 0}
     end
     context "when I show a server" do
