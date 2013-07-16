@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm attach volume
+rumm attach volume ID to server SERVER_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,16 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+ID: STRING                 # The name of the volume to be attached
+SERVER_ID: STRING          # The name of the server the volume is to be attached to
 </pre>
 
 <h3>Description</h3>
-Attaches the specified volume to the specified server.
+<p>Attaches the specified volume to the named server.</p>
 
 <h3>Examples</h3>
 
 <pre>
-rumm attach volume
-...
+rumm attach volume id to server superordinate-struthioniformes
+  <span class="output">...</span>
 </pre>
