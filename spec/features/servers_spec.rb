@@ -12,15 +12,19 @@ describe "using the server api" do
       end
     end
     context "when I list all my servers (and I don't have any')" do
-      Given { pending "wtf doesn't work on travis'" }
       When {VCR.use_cassette('show-servers') {run "rumm show servers"}}
       Then {all_stdout =~ /you don't have any servers/}
       And {last_exit_status.should eql 0}
     end
     context "when I create a server" do
-      Given { pending "wtf doesn't work on travis'" }
+      Given { pending "we're having a timeout issue here'" }
+      Given(:private_key) { home.join '.ssh/id_rsa' }
+      Given do
+        FileUtils.mkdir_p private_key.dirname, mode: 0700
+        `echo -e "y\n" | ssh-keygen -t rsa -C "test@example.com" -N "testing" -f "#{private_key}"`
+      end
       When {VCR.use_cassette('create-server') {run "rumm create server --name silly-saffron"}}
-      Then {all_stdout =~ /created server (\w+)/}
+      Then {all_stdout =~ /created server/}
       And {last_exit_status.should eql 0}
     end
     context "when I show a server" do
