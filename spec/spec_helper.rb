@@ -29,6 +29,8 @@ RSpec.configure do |config|
   }
   config.include Rumm::SpecHelper
 
+  config.before(:each){ Aruba::InProcess.main_class.input.clear }
+
   config.before(:each) do
     @__aruba_original_paths = (ENV['PATH'] || '').split(File::PATH_SEPARATOR)
     ENV['PATH'] = ([File.expand_path('bin')] + @__aruba_original_paths).join(File::PATH_SEPARATOR)
