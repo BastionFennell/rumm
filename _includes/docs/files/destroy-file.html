@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm create file
+rumm destroy file ID in container CONTAINER_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,15 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+ID: STRING                    # ID of the file to destroy
+CONTAINER_ID: STRING          # Name of the container that holds the file
 </pre>
 
 <h3>Description</h3>
-Destroys the specified file.
+<p>Destroys the specified file.</p>
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 <pre>
-rumm create file
-...
+rumm destroy file defaults.txt in container dragging-ceratopogon
 </pre>

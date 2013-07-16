@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm show files
+rumm show files in container CONTAINER_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,16 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+CONTAINER_ID: STRING          # Name of the container whos files are to be listed
 </pre>
 
 <h3>Description</h3>
-Shows a list of files.
+<p>Shows a list of files in the named container.</p>
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 <pre>
-rumm show files
-...
+rumm show files in container dragging-ceratopogon
+  <span class="output">id: are-they-not-complimentary.jpg
+  id: defaults.txt</span>
 </pre>

@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm create file
+rumm create file ID in container CONTAINER_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,19 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+ID: STRING                       # ID of the file to create
+CONTAINER_ID: STRING          # Name of the container to place the file in
 </pre>
 
 <h3>Description</h3>
-Creates a new file.
+<p>Creates a new file in the specified container.</p>
 
-<h3>Example</h3>
+<h3>Examples</h3>
 
 <pre>
-rumm create file
-...
+rumm create container
+  <span class="output">created container: dragging-ceratopogon</span>
+
+rumm create file new-file in container dragging-ceratopogon
+  <span class="output"></span>
 </pre>
