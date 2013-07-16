@@ -12,13 +12,11 @@ describe "using the server api" do
       end
     end
     context "when I list all my servers (and I don't have any')" do
-      Given { pending "wtf doesn't work on travis'" }
       When {VCR.use_cassette('show-servers') {run "rumm show servers"}}
       Then {all_stdout =~ /you don't have any servers/}
       And {last_exit_status.should eql 0}
     end
     context "when I create a server" do
-      Given { pending "wtf doesn't work on travis'" }
       When {VCR.use_cassette('create-server') {run "rumm create server --name silly-saffron"}}
       Then {all_stdout =~ /created server (\w+)/}
       And {last_exit_status.should eql 0}

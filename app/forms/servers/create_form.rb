@@ -9,21 +9,15 @@ class Servers::CreateForm < MVCLI::Form
 
   validates(:ssh_private, "private ssh key location must lead to a file") {|ssh_private| File.exists? ssh_private}
   validates(:ssh_private, "private ssh key must be a valid key") do |ssh_private|
-    if File.exists?(ssh_private) && (test = File.open(ssh_private, "r"))
-      test_line = test.readline
-      test_line.delete! "\n"
-      test_line.delete! "\r"
-      test_line =~ /-----BEGIN .+ PRIVATE KEY-----/
+    File.exists?(ssh_private) && File.open(ssh_private, "r") do |keyfile|
+      keyfile.read =~ /-----BEGIN .+ PRIVATE KEY-----/
     end
   end
 
   validates(:ssh_public, "public ssh key location must lead to a file") {|ssh_public| File.exists? ssh_public}
   validates(:ssh_public, "public ssh key must be a valid key") do |ssh_public|
-    if File.exists?(ssh_public) && (test = File.open(ssh_public, "r"))
-      test_line = test.readline.split[0]
-      test_line.delete! "\n"
-      test_line.delete! "\r"
-      test_line =~ /ssh-/
+    File.exists?(ssh_public) && File.open(ssh_public, "r") do |keyfile|
+      keyfile.read =~ /ssh-/
     end
   end
 end
