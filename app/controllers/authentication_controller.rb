@@ -19,9 +19,11 @@ class AuthenticationController < MVCLI::Controller
 
     response = connection.post headers: headers, body: body.to_json, path: '/v2.0/tokens'
 
-
     #TODO check the status code of the request
     user_info = Map(JSON.parse response.body)
+
+    #Test if it's authenticated
+    fail "User could not be authenticated" unless user_info[:access]
 
     headers.merge!({'X-Auth-Token' => user_info.access.token.id})
     response = connection.get headers: headers, path: "/v2.0/users/#{user_info.access.user.id}/OS-KSADM/credentials/RAX-KSKEY:apiKeyCredentials"
