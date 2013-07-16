@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm show users
+rumm show users on dbinstance DBINSTANCE_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,16 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+DBINSTANCE_ID: STRING          # Name of the DB instance on which the users can be found
 </pre>
 
 <h3>Description</h3>
-Shows all users.
-
-<h3>Example</h3>
+<p>Shows all of the users in the specified DB instance. The databases to which the users have access are listed after the username.
+</p>
+<h3>Examples</h3>
 
 <pre>
-rumm show users
-...
+rumm show users on dbinstance departmental-ichthyologist
+  <span class="output">me, [{"name"=>"different-boycott"}, {"name"=>"disentangled-behmen"}]
+  you, [{"name"=>"different-boycott"}]</span>
 </pre>
