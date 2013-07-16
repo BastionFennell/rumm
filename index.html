@@ -7,7 +7,6 @@ title: rumm - A Tasty Tool for Hackers & Pirates
   <div class="inner red-shadow">
     <h1><span class="bold">rumm</span> is an extendable command line tool written in Ruby<br>
     that mkaes managing the Rackspace Cloud <span class="bold italic">easy as pie</span></h1>
-    [screencast]
   </div>
 </div>
 
@@ -32,7 +31,7 @@ title: rumm - A Tasty Tool for Hackers & Pirates
 <div class="section white grey-shadow">
   <div class="inner no-bottom-margin grey-shadow">
     <h2>rumm Basics</h2>
-    <p>Authentication: Before you can use rumm, you'll need a Rackspace Cloud account. It's free to sign up. rumm is self-configuring - just use the <span class="italic">login</span> command.</p>
+    <p>Authentication: Before you can use rumm, you'll need a <a href="http://rackspace.com/cloud">Rackspace Cloud</a> account. It's free to sign up. rumm is self-configuring - just use the <span class="italic">login</span> command.</p>
 
 <pre>
 rumm login
@@ -46,14 +45,11 @@ rumm login
 
 <pre>
 rumm create server
-  <span class="output">created server divine-reef
-  id: 52415800-8b69-11e0-9b19-734f565bc83b,
-  hostId: e4d909c290d0fb1ca068ffaddf22cbd0,
-  ip: 67.23.10.138,
-  image: CentOS 5.2</span>
+  <span class="output">--> bootstrapping server sorrel-shantung
+      done.</span></span>
 
 rumm show servers
-  <span class="output">output</span>
+  <span class="output">sorrel-shantung -> id: f89c4f57-f66b-4a14-aae2-e3dedf7f59b2, status: ACTIVE, ipv4: 166.78.111.48</span>
 </pre>
     <p>For a complete list of available commands, please see the <a href="{{ site.baseurl }}/documentation.html">Documentation</a>.</p?
   </div>
@@ -71,14 +67,25 @@ rumm show servers
 <div class="section greyrumm grey-shadow">
   <div class="inner grey-shadow">
     <h2>Plugins</h2>
-    <p>But wait, there's more! MVCLI was built from the ground up to allow for plugin development. Much like a Rails Engine, an MVCLI plugin is a gem that has its own models, views and controllers that can be used to extend the functionality of any MVCLI application, including rumm. 
+    <p>
+      But wait, there's more! MVCLI was built from the ground up to allow for plugin development. Much like a Rails Engine, an MVCLI plugin is a gem that has its own models, views and controllers that can be used to extend the functionality of any MVCLI application, including rumm.
+    </p>
+    <p>
+      MVCLI does not yet support plugins, but it will soon. In the mean time, the 'railsify server' command curently built into rumm is a good example of what a plugin can do. 'railsify server' will install your entire Ruby on Rails production stack onto a cloud sever with one command! It's not currently a plugin, but it will be extracted into one as soon as the support is there.
+    </p>
   </div>
 </div>
 
 <div class="section white grey-shadow">
   <div class="inner grey-shadow">
     <h2>Contribute to rumm</h2>
-    <p>rumm is an open source project and welcomes contributions. The source code is on GitHub and you can use GitHub issues to report bugs.</p>
+    <p>rumm is an open source project and welcomes contributions. The source code is on GitHub and you can use GitHub issues to report bugs. There are several ways that you can help out with rumm:</p>
+    <ul>
+      <li>Contribute Code: look through the issues and get started fixing and improving.</li>
+      <li>Contribute to MVCLI: The framework on which rumm is built needs help too. Helping MVCLI helps rumm.</li>
+      <li>Write a Plugin: MVCLI does not yet support plugins, but when it does, rumm will be a great candidate for expansion.</li>
+      <li>Find bugs: Even if your coding skills aren't at a point where you feel comfortable contributing, good bug reports are always welcome.</li>
+    </ul>
     <p>For more infromation regarding rumm, please contact <a href="mailto:Kyle.Rames@rackspace.com">Kyle Rames</a>.</p>
   </div>
 </div>

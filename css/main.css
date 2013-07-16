@@ -23,6 +23,8 @@ a {
 
 p {margin: 10px 0;}
 
+ul {text-align:left;}
+
 pre {
   color: #fff;
   font-family: "Droid Sans Mono";
@@ -41,6 +43,13 @@ pre .output { color: #bbb;}
 
 .bold {font-weight:bold;}
 .italic {font-style:italic;}
+.right {float:right;}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 .section {
   width: 100%;
