@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm create database
+rumm create database on dbinstance INSTANCE_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,15 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+INSTANCE_ID: STRING          # Name of the DB Instance on which to create the database
 </pre>
 
 <h3>Description</h3>
-Creates a new database.
+<p>Creates a new database on the specified DB instance. The name of the database will be automatically generated.</p>
 
 <h3>Example</h3>
 
 <pre>
-rumm create database
-...
+rumm create database on dbinstance departmental-ichthyologist
+  <span class="output">created database: dualistic-bryan</span>
 </pre>

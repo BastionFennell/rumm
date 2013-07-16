@@ -3,7 +3,7 @@
 <h3>Command</h3>
 
 <pre>
-rumm show database
+rumm show database ID on dbinstance INSTANCE_ID
 </pre>
 
 <h3>Options</h3>
@@ -15,15 +15,16 @@ none
 <h3>Arguments</h3>
 
 <pre>
-none
+ID: STRING                   # Name of the database to show
+INSTANCE_ID: STRING          # Name of the DB Instance on which the database can be found
 </pre>
 
 <h3>Description</h3>
-Shows the specified Database.
+<p>Shows the specified database.</p>
 
 <h3>Example</h3>
 
 <pre>
-rumm show database
-...
+rumm show database different-boycott on dbinstance departmental-ichthyologist
+  <span class="output">name: different-boycott</span>
 </pre>
