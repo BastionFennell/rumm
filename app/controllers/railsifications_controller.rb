@@ -1,6 +1,5 @@
 require "tmpdir"
 require "open3"
-require "yaml"
 
 class RailsificationsController < MVCLI::Controller
   requires :compute
