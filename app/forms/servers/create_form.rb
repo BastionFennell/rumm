@@ -13,7 +13,7 @@ class Servers::CreateForm < MVCLI::Form
       test_line = test.readline
       test_line.delete! "\n"
       test_line.delete! "\r"
-      test_line == "-----BEGIN RSA PRIVATE KEY-----"
+      test_line =~ /-----BEGIN .+ PRIVATE KEY-----/
     end
   end
 
@@ -23,7 +23,7 @@ class Servers::CreateForm < MVCLI::Form
       test_line = test.readline.split[0]
       test_line.delete! "\n"
       test_line.delete! "\r"
-      test_line == "ssh-rsa"
+      test_line =~ /ssh-/
     end
   end
 end
