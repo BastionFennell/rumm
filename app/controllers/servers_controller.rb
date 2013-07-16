@@ -21,8 +21,8 @@ class ServersController < MVCLI::Controller
       name: form.name,
       flavor_id: form.flavor_id,
       image_id: form.image_id,
-      private_key_path: "~/.ssh/id_rsa",
-      public_key_path: "~/.ssh/id_rsa.pub"
+      private_key_path: form.ssh_private, #"~/.ssh/id_rsa"
+      public_key_path: form.ssh_public #"~/.ssh/id_rsa.pub"
     }
     command.output.puts "--> bootstrapping server #{options[:name]}"
     #Progress bar
