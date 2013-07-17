@@ -40,11 +40,6 @@ class RailsificationsController < MVCLI::Controller
     return server
   end
 
-  def migrate_data(database_url)#mysql2://<username>:<password>@<dbinstance_hostname>/<database name>
-    execute("scp db/development.sqlite3 root@#{server.ipv4_address}:/home/apps/app1/current/db/development.sqlite3")
-    execute("ssh root@#{server.ipv4_address} 'cd /home/apps/app1/current/db && bundle exec taps server sqlite://development.sqlite3 templogin temppass -d & && bundle exec taps pull #{database_url} http://templogin:temppass@localhost:5000'")
-  end
-
   private
 
   def execute(cmd)
