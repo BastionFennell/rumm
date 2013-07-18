@@ -1,0 +1,14 @@
+Usage:
+    rumm show loadbalancer ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the load balancer to show
+
+Description:
+    Shows the specified load balancer.
+
+Examples:
+    rumm show loadbalancer located-bruce

@@ -1,0 +1,14 @@
+Usage:
+    rumm show containers
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Shows a list of containers in the active Rackspace account.
+
+Examples:
+    rumm show containers

@@ -1,0 +1,14 @@
+Usage:
+    rumm show dbinstances
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Show a list of DB instances contained in the current Rackspace account.
+
+Examples:
+    rumm show dbinstances

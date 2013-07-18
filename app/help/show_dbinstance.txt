@@ -1,0 +1,14 @@
+Usage:
+    rumm show dbinstance ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the DB instance to show
+
+Description:
+    Shows the specified DB instance.
+
+Examples:
+    rumm show dbinstance

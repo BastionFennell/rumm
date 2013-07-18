@@ -1,0 +1,14 @@
+Usage:
+    rumm destroy volume ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # The name of the volume to destroy
+
+Description:
+    Destroys the specified volume.
+
+Examples:
+    rumm destroy volume postbiblical-vacancy

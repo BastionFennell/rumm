@@ -1,0 +1,15 @@
+Usage:
+    rumm show node ID on loadbalancer LOADBALANCER_ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING                      # ID of the node to show
+    LOADBALANCER_ID: STRING         # Name of the loadbalancer that contains the node requested
+
+Description:
+    Shows the specified node from the named load balancer.
+
+Examples:
+    rumm show node 390579 on loadbalancer loamy-bradypodidae

@@ -1,0 +1,14 @@
+Usage:
+    rumm show loadbalancers
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Shows a list of all of the load balancers in the active Rackspace account.
+
+Examples:
+    rumm show loadbalancers

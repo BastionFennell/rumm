@@ -1,0 +1,14 @@
+Usage:
+    rumm destroy server ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the server to destroy
+
+Description:
+    This command will send a request to destroy the named server.
+
+Examples:
+    rumm destroy server purple-bookcase

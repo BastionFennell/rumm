@@ -1,0 +1,15 @@
+Usage:
+    rumm show file ID in container CONTAINER_ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING                      # Name of the file to show
+    CONTAINER_ID: STRING            # Name of the container that holds the file
+
+Description:
+    Shows the specified file from the container named.
+
+Examples:
+    rumm show file default.text in container dragging-ceratopogon

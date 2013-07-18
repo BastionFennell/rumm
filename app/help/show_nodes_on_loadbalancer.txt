@@ -1,0 +1,14 @@
+Usage:
+    show nodes on loadbalancer LOADBALANCER_ID
+
+Options:
+    none
+
+Arguments:
+    LOADBALANCER_ID: STRING         # The name of the load balancer that owns the nodes to be listed
+
+Description:
+    Shows all the nodes on the named load balancer.
+
+Examples:
+    rumm show nodes on loadbalancer loamy-bradypodidae

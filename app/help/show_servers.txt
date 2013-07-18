@@ -1,0 +1,15 @@
+Usage:
+    rumm show servers
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Shows a list of all of the servers contained in the current user's
+    Rackspace account.
+
+Examples:
+    rumm show servers

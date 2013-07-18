@@ -1,0 +1,14 @@
+Usage:
+    rumm show files in container CONTAINER_ID
+
+Options:
+    none
+
+Arguments:
+    CONTAINER_ID: STRING            # Name of the container whose files are to be listed
+
+Description:
+    Shows a list of files in the named container.
+
+Examples:
+    rumm show files in container dragging-ceratopogon

@@ -1,0 +1,14 @@
+Usage:
+    rumm create volume
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Creates a new volume. A name will be auto-generated.
+
+Examples:
+    rumm create volume
