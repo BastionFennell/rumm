@@ -1,0 +1,14 @@
+Usage:
+    rumm show attachments on server SERVER_ID
+
+Options:
+    none
+
+Arguments:
+    SERVER_ID: STRING           # The server whose attachments are to be shown
+
+Description:
+    Shows the attached volumes for the named server.
+
+Examples:
+    rumm show attachments on server superordinate-struthioniformes

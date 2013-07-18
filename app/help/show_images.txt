@@ -1,0 +1,15 @@
+Usage:
+    rumm show images
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Shows a list of all of the images available to the active Rackspace
+    account, both Rackspace base images and user-created snapshot images.
+
+Examples:
+    rumm show images

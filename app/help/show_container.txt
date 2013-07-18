@@ -1,0 +1,14 @@
+Usage:
+    rumm show container ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the container to show.
+
+Description:
+    Shows the specified container.
+
+Examples:
+    rumm show container reducible-upkeep

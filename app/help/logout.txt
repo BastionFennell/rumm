@@ -1,0 +1,15 @@
+Usage:
+    rumm logout
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Logs the user out of the specified Rackspace account. Your username and API
+    key will be removed from ~/.netrc.
+
+Examples
+    rumm logout

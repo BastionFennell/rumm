@@ -1,0 +1,14 @@
+Usage:
+    rumm show databases on dbinstance INSTANCE_ID
+
+Options:
+    none
+
+Arguments:
+    INSTANCE_ID: STRING         # Name of the DB instance on which the databases can be found
+
+Description:
+    Shows a list of databases that reside on the given DB intance.
+
+Examples:
+    rumm show databases on dbinstance departmental-ichthyologist

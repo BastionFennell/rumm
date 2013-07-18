@@ -1,0 +1,15 @@
+Usage:
+    rumm destroy node ID on loadbalancer LOADBALANCER_ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING                       # ID of the node to show
+    LOADBALANCER_ID: STRING          # Name of the loadbalancer that contains the node requested
+
+Description:
+    Destroys a the specified node for the named load balancer.
+
+Examples:
+    rumm destroy node 390579 on loadbalancer loam7-bradypodidae

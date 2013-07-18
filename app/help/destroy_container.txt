@@ -1,0 +1,14 @@
+Usage:
+    rumm destroy container ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the container to destroy.
+
+Description:
+    Destroys the specified container.
+
+Examples:
+    rumm destroy container blockish-adversary

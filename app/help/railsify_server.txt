@@ -1,0 +1,17 @@
+Usage:
+    rumm railsify server id
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the server to railsify
+
+Description:
+    Railsify will install on the specified server all software required to run
+    a production Rails application. For details, look at the command output.
+    This command takes a very long time to run. In the future, this command
+    will be extracted into a plugin.
+
+Examples:
+    rumm railsify server sorrel-shantung

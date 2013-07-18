@@ -1,0 +1,15 @@
+Usage:
+    rumm create dbinstance
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Creates a new DB instance. A name for the DB instance will be
+    automatically generated.
+
+Examples:
+    rumm create dbinstance

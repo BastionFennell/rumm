@@ -1,0 +1,14 @@
+Usage:
+    rumm show volumes
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Shows all volumes in the active Rackspace account.
+
+Examples:
+    rumm show volumes

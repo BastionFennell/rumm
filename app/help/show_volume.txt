@@ -1,0 +1,14 @@
+Usage:
+    rumm show volume ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # The name of the volume to show
+
+Description:
+    Shows a volume.
+
+Examples:
+    rumm show volume postbiblical-vacancy

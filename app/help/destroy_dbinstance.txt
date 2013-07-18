@@ -1,0 +1,14 @@
+Usage:
+    rumm destroy dbinstance ID
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Destroys the specified DB instance.
+
+Examples:
+    rumm destroy dbinstance drum-shaped-inerrancy

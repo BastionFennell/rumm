@@ -1,0 +1,14 @@
+Usage:
+    rumm destroy loadbalancer ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the load balancer to destroy
+
+Description:
+    Destroys the specified load balancer.
+
+Examples:
+    rumm destroy loadbalancer located-bruce

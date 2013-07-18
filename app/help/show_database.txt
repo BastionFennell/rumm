@@ -1,0 +1,15 @@
+Usage:
+    rumm show database ID on dbinstance INSTANCE_ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING                   # Name of the database to show
+    INSTANCE_ID: STRING          # Name of the DB instance on which the database can be found
+
+Description:
+    Shows the specified database.
+
+Examples:
+    rumm show database different-boycott on dbinstance departmental-ichthyologist

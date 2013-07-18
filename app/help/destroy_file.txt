@@ -1,0 +1,15 @@
+Usage:
+    rumm destroy file ID in container CONTAINER_ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING                    # ID of the file to destroy
+    CONTAINER_ID: STRING          # Name of the container that holds the file
+
+Description:
+    Destroys the specified file.
+
+Examples:
+    rumm destroy file defaults.txt in container dragging-ceratopogon

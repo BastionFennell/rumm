@@ -1,0 +1,14 @@
+Usage:
+    rumm ssh ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the server to log in to
+
+Description:
+    This command logs into the named server as root via ssh.
+
+Example:
+    rumm ssh standard-sasquatch

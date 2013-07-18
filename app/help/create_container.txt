@@ -1,0 +1,14 @@
+Usage:
+    rumm create container
+
+Options:
+    none
+
+Arguments:
+    none
+
+Description:
+    Creates a new container.
+
+Examples:
+    rumm create container

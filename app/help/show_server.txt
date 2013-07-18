@@ -1,0 +1,14 @@
+Usage:
+    rumm show server ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the server to play
+
+Description:
+    Shows the attributes of the sever with the name specified by ID.
+
+Examples:
+    rumm show server sorrel-shantung

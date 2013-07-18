@@ -1,0 +1,52 @@
+Usage:
+    rumm create loadbalancer [--name STRING] [--port INTEGER] [--protocol STRING] [--virtual-ip TYPE][...] --node HOST:PORT:TYPE:CONDITION[...]
+
+Options:
+    --name                 # The name of the load balancer
+    --port                 # The port of the load balancer
+    --protocol             # The protocol to be used
+    --virtual-ip           # Virtual IP type
+    --node                 # A node for the load balaner
+                           #   node arguments: host, port, type, condition
+
+Arguments:
+    none
+
+Description:
+    Creates a new load balancer. If the load balancer is not named, a name will
+    be generated automatically. The default port is 80, and the default
+    protocol is HTTP.
+
+    The following protocols are available (HTTP is default):
+
+        DNS_TCP
+        DNS_UDP
+        FTP
+        HTTP
+        HTTPS
+        IMAPS
+        IMAPv2
+        IMAPv3
+        IMAPv4
+        LDAP
+        LDAPS
+        MYSQL
+        POP3
+        POP3S
+        SFTP
+        SMTP
+        TCP
+        TCP_CLIENT_FIRST
+        UDP
+        UDP_STREAM
+
+    The available virtual IP types are PUBLIC (default) and SERVICENET.
+
+    Each node must be of a type primary (default) or secondary.
+
+    Each node must have a condition specified - enabled (default) or disabled.
+
+Examples:
+    rumm create loadbalancer --node 10.0.0.1:80
+    rumm create loadbalancer --node 166.78.114.25:80 --node 166.78.111.23:80 --node 198.61.239.55:80
+    rumm create loadbalancer --name search-balancer --port 8080 --protocol HTTP --virtual-ip PUBLIC --virtual-ip SERVICENET --node google.com:80:primary:enabled --node bing.com:80:secondary:disabled

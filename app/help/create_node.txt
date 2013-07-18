@@ -1,0 +1,14 @@
+Usage:
+    rumm create node on loadbalancer LOADBALANCER_ID
+
+Options:
+    none
+
+Arguments:
+    LOADBALANCER_ID: STRING         # Name of the loadbalancer that contains the node requested
+
+Description:
+    Creates a new node on the named load balancer.
+
+Examples:
+    rumm create node on loadbalancer LOADBALANCER_ID
