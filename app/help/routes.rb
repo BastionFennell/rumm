@@ -1,3 +1,13 @@
+require 'shellwords'
+
+def self.help(path)
+  match "help #{path}" => proc {|cmd|
+    file_name = Shellwords.split(path).join('_')
+    help_text = File.expand_path("../#{file_name}.txt", __FILE__)
+    cmd.output << File.read(help_text)
+  }
+end
+
 help('login')
 help('logout')
 
