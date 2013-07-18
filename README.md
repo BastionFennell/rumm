@@ -31,21 +31,12 @@ Create the server:
       created server divine-reef
         id: 52415800-8b69-11e0-9b19-734f565bc83b, hostId: e4d909c290d0fb1ca068ffaddf22cbd0, ip: 67.23.10.138, image: CentOS 5.2
         
-Create the database:
+For further help, including a full listing of commands, type:
 
-    rumm create databaseinstance #=> POST databaseintsances
-      created databaseinstance little-fork
-        id: 623, username: 'username', password: 'password', databases: production
+    rumm help
 
-In order to allow for a multilpe server nodes, and the ability to
-bring up new server nodes without changing the public IP of our
-application, we'll create a load balancer to handle traffic, and then
-add our server to it:
+## Further Reading
 
-    rumm create loadbalancer  #=> POST loadbalancers
-      created loadbalancer tranquil-snowflake
-        id: 220, port: 80, protocol: http, algorithm: random, virtualIps: 10.1.1.1, fd24:f480:ce44:91bc:1af2:15ff:0000:0005
+See the [official rumm website][1] for more information, including documentation.
 
-    rumm create node on loadbalancer tranquil-snowflake
-      created node loadbalancer:tranquil-snowflake
-        id: 410, address: 67.23.10.138, port: 3000, condition: ENABLED, status: ONLINE, weight: 10, type: PRIMARY
+[1]: http://rackerlabs.github.io/rumm
