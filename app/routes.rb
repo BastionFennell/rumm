@@ -69,3 +69,20 @@ match 'destroy volume :id' => 'volumes#destroy'
 match 'show attachments on server :server_id' => 'attachments#index'
 match 'attach volume :id to server :server_id' => 'attachments#attach'
 match 'detach volume :id from server :server_id' => 'attachments#detach'
+<<<<<<< Updated upstream
+=======
+
+# Stop-gap measure to load help for each rumm command
+# ==========
+require 'shellwords'
+
+def help(path)
+  match "help #{path}" => proc {|cmd|
+    file_name = Shellwords.split(path).join('_')
+    help_text = File.expand_path("../help/#{file_name}.txt", __FILE__)
+    cmd.output << File.read(help_text)
+  }
+end
+
+eval File.read(File.expand_path '../help/routes.rb', __FILE__), binding, 'app/help/routes.rb'
+>>>>>>> Stashed changes
