@@ -8,7 +8,7 @@ def self.help(path)
   }
 end
 
-help('show commands')
+help('commands')
 
 help('login')
 help('logout')
