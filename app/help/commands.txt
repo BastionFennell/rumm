@@ -1,0 +1,75 @@
+Authentication:
+    rumm login
+    rumm logout
+
+Images:
+    rumm show images
+    rumm show images
+
+Servers:
+    rumm show servers
+    rumm show server :id
+    rumm create server
+    rumm update server :id
+    rumm destroy server :id
+    rumm ssh :id
+
+Loadbalancers:
+    rumm show loadbalancers
+    rumm show loadbalancer :id
+    rumm create loadbalancer
+    rumm update loadbalancer :id
+    rumm destroy loadbalancer :id
+
+Nodes:
+    rumm show nodes on loadbalancer :loadbalancer_id
+    rumm show node :id on loadbalancer :loadbalancer_id
+    rumm create node on loadbalancer :loadbalancer_id
+    rumm update node :id on loadbalancer :loadbalancer_id
+    rumm destroy node :id on loadbalancer :loadbalancer_id
+
+Dbinstances:
+    rumm show dbinstances
+    rumm show dbinstance :id
+    rumm create dbinstance
+    rumm update dbinstance :id
+    rumm destroy dbinstance :id
+
+Databases:
+    rumm show databases on dbinstance :instance_id
+    rumm show database :id on dbinstance :instance_id
+    rumm create database on dbinstance :instance_id
+    rumm update database :id on dbinstance :instance_id
+    rumm destroy database :id on dbinstance :instance_id
+
+Users:
+    rumm show users on dbinstance :dbinstance_id
+    rumm show user :id on dbinstance :dbinstance_id
+    rumm create user on dbinstance :dbinstance_id
+
+Containers:
+    rumm show containers
+    rumm show container :id
+    rumm create container
+    rumm update container :id
+    rumm destroy container :id
+
+Files:
+    rumm show files in container :container_id
+    rumm show file :id on container :container_id
+    rumm create file :id on container :container_id
+    rumm update file :id on container :container_id
+    rumm destroy file :id on container :container_id
+    rumm download file :id on container :container_id
+
+Volumes:
+    rumm show volumes
+    rumm show volume :id
+    rumm create volume
+    rumm update volume :id
+    rumm destroy volume :id
+
+Attachments:
+    rumm show attachments on server :server_id
+    rumm attach volume :id to server :server_id
+    rumm detach volume :id from server :server_id
