@@ -22,7 +22,7 @@ Authenticate with rackspace
 Now we can see the list of servers we have available:
 
     $ rumm show servers
-    you don't have any servers, but you can create on with:
+    you don't have any servers, but you can create one by running:
     rumm create server
 
 Create the server:
