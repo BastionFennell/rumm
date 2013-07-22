@@ -22,5 +22,10 @@ describe "fancy naming" do
       Then { parts.first[0] == 's'}
       Then { parts.last[0] == 's' }
     end
+    context "with a nil argument" do
+      Given(:arguments) { [nil, nil] }
+      Then { parts.first[0] != nil}
+      Then { parts.last[0] != nil }
+    end
   end
 end
