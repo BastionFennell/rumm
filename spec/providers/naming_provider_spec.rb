@@ -10,6 +10,24 @@ describe "fancy naming" do
     Then { not name.nil? }
     Then { name.length > 1}
   end
+  context "with nil arguments" do
+    Given(:parts) { name.split '-' }
+    context "both nil" do
+      Given(:arguments) { [nil, nil] }
+      Then { parts.first[0] != nil}
+      Then { parts.last[0] != nil }
+    end
+    context "adjective nil" do
+      Given(:arguments) { [nil, 'z'] }
+      Then { parts.first[0] != nil}
+      Then { parts.last[0] == 'z' }
+    end
+    context "noun nil" do
+      Given(:arguments) { ['x', nil] }
+      Then { parts.first[0] == 'x'}
+      Then { parts.last[0] != nil }
+    end
+  end
   context "with a first letter and last letter" do
     Given(:parts) { name.split '-' }
     context "with different letters" do
@@ -21,11 +39,6 @@ describe "fancy naming" do
       Given(:arguments) { ['s', 's'] }
       Then { parts.first[0] == 's'}
       Then { parts.last[0] == 's' }
-    end
-    context "with a nil argument" do
-      Given(:arguments) { [nil, nil] }
-      Then { parts.first[0] != nil}
-      Then { parts.last[0] != nil }
     end
   end
 end
