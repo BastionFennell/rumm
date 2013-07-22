@@ -11,7 +11,7 @@ to easily build and manage infrastructure for great good.
 
 ## Usage
 
-Authenticate with rackspace
+Authenticate with rackspace using your cloud credentials as follows:
 
     rumm login
       username: joe
