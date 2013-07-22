@@ -8,7 +8,7 @@ describe "fancy naming" do
   context "with no arguments" do
     Given(:arguments) { [] }
     Then { not name.nil? }
-    Then { name.length > 0}
+    Then { name.length > 1}
   end
   context "with a first letter and last letter" do
     Given(:parts) { name.split '-' }
