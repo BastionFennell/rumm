@@ -2,6 +2,7 @@ require "rumm"
 require "vcr"
 require "aruba/api"
 require "rspec-given"
+$: << File.expand_path("../../app/providers", __FILE__)
 
 module Rumm::SpecHelper
   def will_type(string)
