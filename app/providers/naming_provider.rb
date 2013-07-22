@@ -14,20 +14,27 @@ class NamingProvider
 
   private
 
+
+  def adjective_file
+    File.expand_path("../naming/adj.txt", __FILE__)
+  end
+
   def get_adj
-    a = rand(20748)
+    a = rand(12586)
     counter = 0
-    dict = File.new(File.expand_path "../naming/adj.txt", __FILE__)
-    dict.each_line do |line|
-      if counter == a
-        return line.delete("\n")
+    File.open adjective_file do |dict|
+      dict.each_line do |line|
+        if counter == a
+          return line.chomp
+        end
+        counter+=1
       end
-      counter+=1
     end
+
   end
 
   def get_noun
-    a = rand(50432)
+    a = rand(20746)
     counter = 0
     dict = File.new(File.expand_path "../naming/nouns.txt", __FILE__)
     dict.each_line do |line|
