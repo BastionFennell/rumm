@@ -4,7 +4,7 @@ class NamingProvider
     self
   end
 
-  def generate_name adj, noun
+  def generate_name(adj = nil, noun = nil)
     if adj == nil and noun == nil
       get_adj + "-" + get_noun
     else
@@ -47,7 +47,7 @@ class NamingProvider
 
   def get_adj_bound letter
     higher = true
-    upper = 20748
+    upper = 12586
     lower = 0
     a = 0
     word = ""
@@ -80,7 +80,7 @@ class NamingProvider
 
   def get_noun_bound letter
     higher = true
-    upper = 50432
+    upper = 20746
     lower = 0
     a = 0
     word = ""
