@@ -26,14 +26,16 @@ class NamingProvider
   end
 
   def noun(first_letter)
-    first_letter ||= random_letter
-    list = dictionary('nouns')[first_letter]
-    list[rand(list.length - 1)]
+    word 'nouns', first_letter
   end
 
   def adjective(first_letter)
+    word 'adjectives', first_letter
+  end
+
+  def word(type, first_letter)
     first_letter ||= random_letter
-    list = dictionary('adjectives')[first_letter]
+    list = dictionary(type)[first_letter]
     list[rand(list.length - 1)]
   end
 end
