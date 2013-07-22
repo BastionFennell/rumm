@@ -7,6 +7,8 @@ class NamingProvider
   end
 
   def generate_name(first_letter = random_letter, last_letter = random_letter)
+    first_letter ||= random_letter
+    last_letter ||= random_letter
     "#{adjective first_letter}-#{noun last_letter}"
   end
 
