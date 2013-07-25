@@ -2,15 +2,9 @@ require "spec_helper"
 
 describe "using the server api" do
   context "with credentials are present" do
-    Given(:home) {Pathname(set_env "HOME", File.expand_path(current_dir))}
-    Given do
-      File.open(home.join('.netrc'), "w") do |f|
-        f.chmod 0600
-        f.puts "machine api.rackspace.com"
-        f.puts "  login #{ENV['RACKSPACE_USERNAME'] || '<rackspace-username>'}"
-        f.puts "  password #{ENV['RACKSPACE_API_KEY'] || '<rackspace-api-key>'}"
-      end
-    end
+
+    include_context "netrc"
+
     context "when I list all my servers (and I don't have any')" do
       When {VCR.use_cassette('show-servers') {run "rumm show servers"}}
       Then {all_stdout =~ /you don't have any servers/}

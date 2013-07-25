@@ -42,6 +42,18 @@ RSpec.configure do |config|
   end
 end
 
+shared_context "netrc" do
+  Given(:home) {Pathname(set_env "HOME", File.expand_path(current_dir))}
+  Given do
+    File.open(home.join('.netrc'), "w") do |f|
+      f.chmod 0600
+      f.puts "machine api.rackspace.com"
+      f.puts "  login #{ENV['RACKSPACE_USERNAME'] || '<rackspace-username>'}"
+      f.puts "  password #{ENV['RACKSPACE_API_KEY'] || '<rackspace-api-key>'}"
+    end
+  end
+end
+
 VCR.configure do |c|
   c.default_cassette_options = {:record => :new_episodes}
   c.hook_into :excon
