@@ -2,6 +2,7 @@ require "rumm"
 require "vcr"
 require "aruba/api"
 require "rspec-given"
+require "netrc"
 $: << File.expand_path("../../app/providers", __FILE__)
 
 module Rumm::SpecHelper
@@ -44,18 +45,23 @@ end
 
 shared_context "netrc" do
   Given(:home) {Pathname(set_env "HOME", File.expand_path(current_dir))}
-  Given do
+  before do
+    if netrc = Netrc.read['api.rackspace.com']
+      login, api_token = netrc
+    else
+      login, api_token = '<rackspace-username>', '<rackspace-api-token>'
+    end
     File.open(home.join('.netrc'), "w") do |f|
       f.chmod 0600
       f.puts "machine api.rackspace.com"
-      f.puts "  login #{ENV['RACKSPACE_USERNAME'] || '<rackspace-username>'}"
-      f.puts "  password #{ENV['RACKSPACE_API_KEY'] || '<rackspace-api-key>'}"
+      f.puts "  login #{login}"
+      f.puts "  password #{api_token}"
     end
   end
 end
 
 VCR.configure do |c|
-  c.default_cassette_options = {:record => :new_episodes}
+  c.default_cassette_options = {:record => :once}
   c.hook_into :excon
   #c.debug_logger = $stderr
 
@@ -88,7 +94,7 @@ require_relative "../app"
 Aruba.process = Aruba::InProcess
 class Aruba::InProcess
   attr_reader :stdin
-
+  
   def self.main_class;
     @@main_class;
   end
