@@ -1,7 +1,7 @@
-macro /(-v|--version)/ => "version"
+macro /^(-v|--version)/ => "version"
 match 'version' => proc {|cmd| cmd.output << "#{Rumm::VERSION}\n" }
 
-macro /(-h|--help)(.*)/ => "help\\2"
+macro /(.*[^\-]|^)(-h(\s|$)|--help)(.*)/ => "help \\1\\4"
 match 'help' => 'help#show'
 
 match 'login' => 'authentication#login'
