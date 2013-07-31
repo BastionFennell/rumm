@@ -7,39 +7,41 @@ class AttachmentsController < MVCLI::Controller
     #Maybe it would be best to give better information about the
     #attachments?
     #Maybe list the volume information rather than attachment info
-    compute.servers.all.find {|s| s.name == params[:server_id]}.attachments.all
+    form = get_form Attachments::ShowAllForm
+
+    form.server.attachments.all
   end
 
   def attach
-    template = Attachments::GenericForm
-    argv = MVCLI::Argv.new command.argv
-    form = template.new argv.options
-    form.validate!
+    form = get_form Attachments::AttachDetachShowForm
 
     server = form.server
     server.attach_volume form.volume
   end
 
   def detach
-    template = Attachments::GenericForm
-    argv = MVCLI::Argv.new command.argv
-    form = template.new argv.options
-    form.validate!
+    form = get_form Attachments::AttachDetachShowForm
 
     attachment(form.server, form.volume).detach
   end
 
   def show
-    attachment attachment(params[:server_id], params[:id])
+    form = get_form Attachments::AttachDetachShowForm
+
+    attachment(form.server, form.volume)
   end
 
   private
 
-  def volume volume_name
-    volumes.all.find {|v| v.display_name == volume_name} or fail Fog::Errors::NotFound
+  def get_form template
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
+    form
   end
 
   def attachment server, volume
-    server.attachments.find {|attachments| attachments == volume} or fail Fog::Errors::NotFound
+    server.attachments.find {|attachments| attachments.volume_id == volume.id} or fail Fog::Errors::NotFound
   end
 end
