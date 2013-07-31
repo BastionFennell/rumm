@@ -67,8 +67,8 @@ match 'update volume :id' => 'volumes#update'
 match 'destroy volume :id' => 'volumes#destroy'
 
 match 'show attachments on server :server_id' => 'attachments#index'
-match 'attach volume :id to server :server_id' => 'attachments#attach'
-match 'detach volume :id from server :server_id' => 'attachments#detach'
+match 'create attachment' => 'attachments#attach'
+match 'destroy attachment' => 'attachments#detach'
 
 # Stop-gap measure to load help for each rumm command
 # ==========
