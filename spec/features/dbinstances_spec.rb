@@ -11,7 +11,7 @@ describe "using the containers api" do
   end
 
   context "to show" do
-    When { VCR.use_cassette('instances/show') { run "rumm show dbintance dancing-idol" }}
+    When { VCR.use_cassette('instances/show') { run "rumm show dbinstance dancing-idol" }}
     Then { all_stdout =~ /dancing-idol/ }
     And { last_exit_status.should eql 0 }
   end
