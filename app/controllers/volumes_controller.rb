@@ -1,6 +1,6 @@
 class VolumesController < MVCLI::Controller
-  requires :compute
   requires :volumes
+  requires :command
 
   def index
     volumes.all
@@ -11,7 +11,7 @@ class VolumesController < MVCLI::Controller
   end
 
   def create
-    template = Servers::CreateForm
+    template = Volumes::CreateForm
     argv = MVCLI::Argv.new command.argv
     form = template.new argv.options
     form.validate!
