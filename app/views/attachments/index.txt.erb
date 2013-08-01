@@ -1,4 +1,8 @@
+server id: <%= this.first.server_id %>
+Attachments:
 <% this.each do |attachment| %>
-id: <%= attachment.volume_id %>
+
+  device: <%= attachment.device %>
+  volume Id: <%= attachment.volume_id %>
 <% end %>
 
