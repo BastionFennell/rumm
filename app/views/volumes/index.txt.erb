@@ -1,5 +1,12 @@
+Volumes:
 <% this.each do |volume| %>
-id: <%= volume.display_name %>
+  id: <%= volume.id %>
+  display name: <%= this.display_name %>
+  display description: <%= this.display_description %>
+  size: <%= this.size %>
+  volume type: <%= this.volume_type %>
+  attachments: <%= this.attachments %>
+  created at: <%= this.created_at %>
 <% end %>
 
 

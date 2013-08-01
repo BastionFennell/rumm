@@ -1,7 +1,6 @@
 class VolumesController < MVCLI::Controller
   requires :compute
   requires :volumes
-  requires :naming
 
   def index
     volumes.all
@@ -12,10 +11,15 @@ class VolumesController < MVCLI::Controller
   end
 
   def create
+    template = Servers::CreateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
     options = {
-      display_name: naming.generate_name(nil, nil),
-      volume_type: "SATA",
-      size: 100
+      display_name: form.name,
+      volume_type: form.type,
+      size: form.size
     }
     volumes.create options
   end
