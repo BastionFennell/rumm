@@ -3,13 +3,9 @@ require "netrc"
 require 'io/console'
 
 describe "logging in" do
-  Given do
-    #@announce_dir = true
-    #@announce_cmd = true
-    #@announce_env = true
-    #@announce_stdout = true
-    #@announce_stderr = true
-    @home = Pathname(set_env "HOME", File.expand_path(current_dir))
+  include_context "netrc"
+  before do
+    run "rumm logout"
   end
   context "interactively with valid credentials" do
     When do

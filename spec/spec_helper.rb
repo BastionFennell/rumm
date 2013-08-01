@@ -44,7 +44,6 @@ RSpec.configure do |config|
 end
 
 shared_context "netrc" do
-  Given(:home) {Pathname(set_env "HOME", File.expand_path(current_dir))}
   before do
     if netrc = Netrc.read['api.rackspace.com']
       login, api_token = netrc
@@ -57,6 +56,11 @@ shared_context "netrc" do
       f.puts "  login #{login}"
       f.puts "  password #{api_token}"
     end
+  end
+  Given(:home) {Pathname(set_env "HOME", File.expand_path(current_dir))}
+
+  after do
+    restore_env
   end
 end
 
