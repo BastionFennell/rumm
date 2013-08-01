@@ -1,7 +1,7 @@
 class InstancesController < MVCLI::Controller
 
   requires :instances
-  requires :naming
+  requires :command
 
   def index
     instances.all
@@ -12,10 +12,16 @@ class InstancesController < MVCLI::Controller
   end
 
   def create
+    template = Instances::CreateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
+    #How expansive do we want these command line options to be?
     options = {
-      name: naming.generate_name('d', 'i'),
-      flavor_id: 1,
-      volume_size: 1,
+      name: form.name,
+      flavor_id: form.flavor,
+      volume_size: form.size
     }
     instances.create options
   end
