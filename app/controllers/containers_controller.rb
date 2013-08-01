@@ -1,15 +1,21 @@
 class ContainersController < MVCLI::Controller
   requires :containers
-  requires :naming
+  requires :command
 
   def index
     containers.all
   end
 
   def create
+    template = Containers::CreateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
     options = {
-      key: naming.generate_name(nil, nil)
+      key: form.name
     }
+
     containers.create options
   end
 
