@@ -2,6 +2,7 @@
 you don't have any loadbalancers, but you can create one by running:
   rumm create loadbalancer
 <% else %>
+  Loadbalancers:
 <% this.each do |loadbalancer| %>
 <%= loadbalancer.name %> -> id: <%= loadbalancer.id %>, 
 <% end %>
