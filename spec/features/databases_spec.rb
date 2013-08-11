@@ -16,7 +16,6 @@ describe "using the databases api" do
   end
 
   context "to show all" do
-    Given { pending "Not working, some sort of error in forms" }
     When { VCR.use_cassette('databases/show-all') { run "rumm show databases on dbinstance decided-irony" }}
     Then { all_stdout =~ /Databases/}
     And { last_exit_status.should eql 0 }
@@ -24,7 +23,7 @@ describe "using the databases api" do
 
   context "to destroy" do
     When { VCR.use_cassette('databases/destroy') { run "rumm destroy database dancing-bear on dbinstance decided-irony" }}
-    Then { all_stdout =~ /Detached volume/}
+    Then { all_stdout =~ /Destroyed/}
     And { last_exit_status.should eql 0 }
   end
 end
