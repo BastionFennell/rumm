@@ -1,6 +1,7 @@
 class NodesController < MVCLI::Controller
   requires :loadbalancers
   requires :nodes
+  requires :command
 
   def index
     n = nodes
@@ -15,13 +16,18 @@ class NodesController < MVCLI::Controller
   end
 
   def create
+    template = Nodes::CreateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
     n = nodes
     n.load_balancer = load_balancer
     options = {
-      address: params[:ip_address],
-      #address: "198.61.221.220",
-      condition: "ENABLED",
-      port: 80
+      address: form.address,
+      condition: form.condition,
+      port: form.port,
+      type: form.type
     }
     n.create options
   end
