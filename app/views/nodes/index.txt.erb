@@ -1,4 +1,5 @@
+Nodes:
 <% this.each do |node| %>
-id: <%= node.id %>
+  id: <%= node.id %>, address: <%= node.address %>, condition: <%= node.condition %>, status: <%= node.status %>, weight: <%= node.weight %>
 <% end %>
 
