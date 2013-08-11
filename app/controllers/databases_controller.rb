@@ -1,7 +1,7 @@
 class DatabasesController < MVCLI::Controller
   requires :instances
   requires :databases
-  requires :naming
+  requires :command
 
   def index
     d = databases
@@ -16,14 +16,14 @@ class DatabasesController < MVCLI::Controller
   end
 
   def create
-    template = Servers::CreateForm
+    template = Databases::CreateForm
     argv = MVCLI::Argv.new command.argv
     form = template.new argv.options
     form.validate!
 
     d = databases
     d.instance = instance
-    d.create ({form.name})
+    d.create ({name: form.name})
   end
 
   def destroy
