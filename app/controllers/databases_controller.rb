@@ -16,9 +16,14 @@ class DatabasesController < MVCLI::Controller
   end
 
   def create
+    template = Servers::CreateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
     d = databases
     d.instance = instance
-    d.create ({name: naming.generate_name("d", "b")})
+    d.create ({form.name})
   end
 
   def destroy
