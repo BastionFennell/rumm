@@ -1,1 +1,5 @@
 name: <%= this.name %>
+users:
+<% this.users.each do |user| %>
+  <%= user.name %>
+<% end %>

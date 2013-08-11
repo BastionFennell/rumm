@@ -2,7 +2,8 @@
 you don't have any databases on this instance, but you can create one by running:
   rumm create database on dbinstance <instance_name>
 <% else %>
+Databases:
 <% this.each do |database| %>
-name: <%= database.name %> 
+name: <%= database.name %>
 <% end %>
 <% end %>
