@@ -1,9 +1,6 @@
 require "spec_helper"
 
 describe "using the volumes api" do
-  #Given { pending "Getting odd unauthorized error" }
-
-  #Netrc isn't writing correctly, wtf?`
   include_context "netrc"
 
   context "to create" do
