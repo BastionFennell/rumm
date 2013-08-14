@@ -1,6 +1,6 @@
 require 'io/console'
 
-class UserProvider
+class LoginProvider
   requires :command
 
   def value
