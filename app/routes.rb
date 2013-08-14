@@ -44,6 +44,7 @@ match 'destroy database :id on dbinstance :instance_id' => 'databases#destroy'
 match 'show users on dbinstance :dbinstance_id' => 'users#index'
 match 'show user :id on dbinstance :dbinstance_id' => 'users#show'
 match 'create user on dbinstance :dbinstance_id' => 'users#create'
+match 'destroy user :id on dbinstance :dbinstance_id' => 'users#destroy'
 
 match 'ssh :id' => 'servers#ssh'
 
