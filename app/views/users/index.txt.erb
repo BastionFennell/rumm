@@ -3,6 +3,6 @@ you don't have any users on this dbinstance, but you can create one by running:
   rumm create user on dbinstance <dbinstance_name>
 <% else %>
 <% this.each do |user| %>
-<%= user.name %>, <%= user.databases.inspect %>
+  <%= user.name %>, databases: <% user.databases.each do |database| %> <%= database["name"] %> <% end %>
 <% end %>
 <% end %>
