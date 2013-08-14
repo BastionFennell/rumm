@@ -1,0 +1,30 @@
+require "spec_helper"
+
+describe "using the files api" do
+
+  include_context "netrc"
+
+  context "to create" do
+    When { VCR.use_cassette('files/create') { run "rumm create file foo in container colorful-cat" }}
+    Then { all_stdout =~ /Created file/ }
+    And { last_exit_status.should eql 0 }
+  end
+
+  context "to show" do
+    When { VCR.use_cassette('files/show') { run "rumm show file foo in container colorful-cat" }}
+    Then { all_stdout =~ /foo/ }
+    And { last_exit_status.should eql 0 }
+  end
+
+  context "to show all" do
+    When { VCR.use_cassette('files/show-all') { run "rumm show files in container colorful-cat" }}
+    Then { all_stdout =~ /Files:/}
+    And { last_exit_status.should eql 0 }
+  end
+
+  context "to destroy" do
+    When { VCR.use_cassette('files/destroy') { run "rumm destroy file foo in container colorful-cat" }}
+    Then { all_stdout =~ /Requested destruction/}
+    And { last_exit_status.should eql 0 }
+  end
+end
