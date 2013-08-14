@@ -1,4 +1,7 @@
+Files:
 <% this.each do |file| %>
-id: <%= file.key %> 
+  <%= file.key %>, size: <%= file.content_length %>
 <% end %>
 
+total number of files: <%= this.directory.count %>
+total number of bytes: <%= this.directory.bytes %>
