@@ -1,14 +1,20 @@
 class FilesController < MVCLI::Controller
   requires :containers
+  requires :command
 
   def index
     container.all
   end
 
   def create
+    template = Files::CreateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
     options = {
       :key  => params[:id],
-      :body => File.open(File.expand_path "nouns.txt")
+      :body => form.file
     }
     container.create options
   end
@@ -22,7 +28,12 @@ class FilesController < MVCLI::Controller
   end
 
   def download
-    File.open((File.expand_path "download-" + params[:id]), 'w') do | f |
+    template = Files::DownloadForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
+    File.open(form.destination, 'w') do | f |
       container.get(params[:id]) do | data, remaining, content_length |
         f.syswrite data
       end
