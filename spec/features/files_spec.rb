@@ -5,14 +5,20 @@ describe "using the files api" do
   include_context "netrc"
 
   context "to create" do
-    When { VCR.use_cassette('files/create') { run "rumm create file foo in container colorful-cat" }}
+    before do
+      File.new("test", 'w') do |f|
+        f.write "The cake is a lie"
+      end
+    end
+
+    When { VCR.use_cassette('files/create') { run "rumm create file foo in container colorful-cat --file test" }}
     Then { all_stdout =~ /Created file/ }
     And { last_exit_status.should eql 0 }
   end
 
   context "to show" do
     When { VCR.use_cassette('files/show') { run "rumm show file foo in container colorful-cat" }}
-    Then { all_stdout =~ /foo/ }
+    Then { all_stderr =~ /foo/ }
     And { last_exit_status.should eql 0 }
   end
 
@@ -22,9 +28,14 @@ describe "using the files api" do
     And { last_exit_status.should eql 0 }
   end
 
+  context "to download" do
+    When { VCR.use_cassette('files/download') { run "rumm download file test in container colorful-cat --destination test" }}
+    Then { File.exists? "test" }
+  end
+
   context "to destroy" do
     When { VCR.use_cassette('files/destroy') { run "rumm destroy file foo in container colorful-cat" }}
-    Then { all_stdout =~ /Requested destruction/}
+    Then { all_stderr =~ /Requested destruction/}
     And { last_exit_status.should eql 0 }
   end
 end
