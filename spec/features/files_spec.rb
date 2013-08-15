@@ -6,7 +6,7 @@ describe "using the files api" do
 
   context "to create" do
     before do
-      File.new("test", 'w') do |f|
+      File.open("test", 'w') do |f|
         f.write "The cake is a lie"
       end
     end
@@ -18,7 +18,7 @@ describe "using the files api" do
 
   context "to show" do
     When { VCR.use_cassette('files/show') { run "rumm show file foo in container colorful-cat" }}
-    Then { all_stderr =~ /foo/ }
+    Then { all_stdout =~ /foo/ }
     And { last_exit_status.should eql 0 }
   end
 
@@ -35,7 +35,7 @@ describe "using the files api" do
 
   context "to destroy" do
     When { VCR.use_cassette('files/destroy') { run "rumm destroy file foo in container colorful-cat" }}
-    Then { all_stderr =~ /Requested destruction/}
+    Then { all_stdout =~ /Requested destruction/}
     And { last_exit_status.should eql 0 }
   end
 end
