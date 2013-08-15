@@ -1,5 +1,9 @@
+<% if this.empty? %>
+you don't have any nodes on this load balancer, but you can create one by running:
+  rumm create node on loadbalancer <loadbalancer_name>
+<% else %>
 Nodes:
 <% this.each do |node| %>
   id: <%= node.id %>, address: <%= node.address %>, condition: <%= node.condition %>, status: <%= node.status %>, weight: <%= node.weight %>
 <% end %>
-
+<% end %>

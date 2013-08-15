@@ -1,4 +1,9 @@
+<% if this.empty? %>
+you don't have any containers, but you can create one by running:
+  rumm create container
+<% else %>
 Containers:
 <% this.each do |container| %>
   id: <%= container.key %>
+<% end %>
 <% end %>

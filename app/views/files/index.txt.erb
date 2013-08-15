@@ -1,3 +1,7 @@
+<% if this.empty? %>
+you don't have any files in this container, but you can create one by running:
+  rumm create file in container <container_name>
+<% else %>
 Files:
 <% this.each do |file| %>
   <%= file.key %>, size: <%= file.content_length %>
@@ -5,3 +9,4 @@ Files:
 
 total number of files: <%= this.directory.count %>
 total number of bytes: <%= this.directory.bytes %>
+<% end %>

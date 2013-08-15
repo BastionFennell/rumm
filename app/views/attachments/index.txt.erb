@@ -1,8 +1,12 @@
+<% if this.empty? %>
+you don't have any attachments to this server, but you can create one by running:
+  rumm create attachment on server <server_name>
+<% else %>
 server id: <%= this.first.server_id %>
 Attachments:
 <% this.each do |attachment| %>
 
   device: <%= attachment.device %>
-  volume Id: <%= attachment.volume_id %>
+  volume id: <%= attachment.volume_id %>
 <% end %>
-
+<% end %>
