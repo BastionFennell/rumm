@@ -36,7 +36,7 @@ class NodesController < MVCLI::Controller
     n = nodes
     n.load_balancer = load_balancer
     find_node_in(n).destroy
-    :id
+    params[:id]
   end
 
   private
