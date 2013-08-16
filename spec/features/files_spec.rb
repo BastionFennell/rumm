@@ -5,12 +5,12 @@ describe "using the files api" do
   include_context "netrc"
 
   context "to create" do
-    before do
-      `touch test`
-      `echo "the cake is a lie" >> test`
+    Given do
+      `touch ~/test.txt`
+      `echo "the cake is a lie" >> ~/test.txt`
     end
 
-    When { VCR.use_cassette('files/create') { run "rumm create file foo in container colorful-cat --file test" }}
+    When { VCR.use_cassette('files/create') { run "rumm create file foo in container colorful-cat --file \"#{File.expand_path "~" + "/test" }\"" }}
     Then { all_stderr == "" }
     Then { all_stdout =~ /Created file/ }
     And { last_exit_status.should eql 0 }
