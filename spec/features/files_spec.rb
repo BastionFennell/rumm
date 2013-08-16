@@ -8,9 +8,10 @@ describe "using the files api" do
     Given do
       `touch ~/test.txt`
       `echo "the cake is a lie" >> ~/test.txt`
+      p `cat ~/test.txt`
     end
 
-    When { VCR.use_cassette('files/create') { run "rumm create file foo in container colorful-cat --file \"#{File.expand_path "~" + "/test" }\"" }}
+    When { VCR.use_cassette('files/create') { run "rumm create file test in container colorful-cat --file \"#{File.expand_path "~" + "/test" }\"" }}
     Then { all_stderr == "" }
     Then { all_stdout =~ /Created file/ }
     And { last_exit_status.should eql 0 }
