@@ -6,14 +6,12 @@ describe "using the files api" do
 
   context "to create" do
     before do
-      File.open("test", 'w') do |f|
-        f.write "The cake is a lie"
-      end
+      `touch test`
+      `echo "the cake is a lie" >> test`
     end
 
     When { VCR.use_cassette('files/create') { run "rumm create file foo in container colorful-cat --file test" }}
     Then { all_stderr == "" }
-    Then { File.exists? "test" }
     Then { all_stdout =~ /Created file/ }
     And { last_exit_status.should eql 0 }
   end
