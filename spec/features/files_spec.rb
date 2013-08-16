@@ -29,8 +29,9 @@ describe "using the files api" do
   end
 
   context "to download" do
-    When { VCR.use_cassette('files/download') { run "rumm download file test in container colorful-cat --destination test" }}
-    Then { File.exists? "test" }
+    When { VCR.use_cassette('files/download') { run "rumm download file test in container colorful-cat --destination download-test" }}
+    Then { all_stdout =~ /Downloaded/ }
+    And { last_exit_status.should eql 0 }
   end
 
   context "to destroy" do
