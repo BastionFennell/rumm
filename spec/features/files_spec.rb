@@ -6,9 +6,8 @@ describe "using the files api" do
 
   context "to create" do
     Given do
-      `touch ~/test.txt`
-      `echo "the cake is a lie" >> ~/test.txt`
-      p `cat ~/test.txt`
+      `touch ~/test`
+      `echo "the cake is a lie" >> ~/test`
     end
 
     When { VCR.use_cassette('files/create') { run "rumm create file test in container colorful-cat --file \"#{File.expand_path "~" + "/test" }\"" }}
