@@ -13,6 +13,7 @@ describe "using the files api" do
 
     When { VCR.use_cassette('files/create') { run "rumm create file foo in container colorful-cat --file test" }}
     Then { all_stderr == "" }
+    Then { File.exists? "test" }
     Then { all_stdout =~ /Created file/ }
     And { last_exit_status.should eql 0 }
   end
