@@ -134,8 +134,8 @@ describe "interactive learning" do
     #  --nodes[1][address]: 'xxx' -> IPAddr::InvalidAddressError: invalid address
 
     Given {rumm "create loadbalancer --node 10.0.0.1:999999 --node %%^:80 --port=-1"}
-    Then { stderr.match  "port: port must be between 0 and 65,535" }
-    Then { stderr.match  /nodes\[0\].port: port must be between 0 and 65,535/ }
+    Then { stderr.match  "port: must be between 0 and 65,535" }
+    Then { stderr.match  /nodes\[0\].port: must be between 0 and 65,535/ }
     Then { stderr.match  /nodes\[1\].address:/}
   end
 
