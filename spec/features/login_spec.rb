@@ -9,7 +9,7 @@ describe "logging in" do
   end
   context "interactively with valid credentials" do
     When do
-      VCR.use_cassette('successful-login') do
+      VCR.use_cassette('authentication/successful-login') do
         if VCR.current_cassette.recording?
           print "\nUsername: "
           username = $stdin.gets.chomp
@@ -35,7 +35,7 @@ describe "logging in" do
   end
 
   context "logging out" do
-    When {VCR.use_cassette('successful-logout') {run "rumm logout"}}
+    When {run "rumm logout"}
     Then {last_exit_status == 0}
 
     context "removes your login credentials from .netrc" do
@@ -47,7 +47,7 @@ describe "logging in" do
     end
     context "interactively with invalid credentials" do
       When do
-        VCR.use_cassette("unsuccessful-login") do
+        VCR.use_cassette("authentication/unsuccessful-login") do
           will_type "nil"
           will_type "nil"
           run_interactive "rum login"
