@@ -14,7 +14,7 @@ class FilesController < MVCLI::Controller
 
     options = {
       :key  => params[:id],
-      :body => form.file
+      :body => form.file.to_s
     }
     container.create options
   end
@@ -33,7 +33,7 @@ class FilesController < MVCLI::Controller
     form = template.new argv.options
     form.validate!
 
-    File.open(form.destination, 'w') do | f |
+    File.open(form.destination.to_s, 'w') do | f |
       container.get(params[:id]) do | data, remaining, content_length |
         f.syswrite data
       end
