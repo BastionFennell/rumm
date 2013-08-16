@@ -4,7 +4,7 @@ class Users::CreateForm < MVCLI::Form
   input :databases, [Map], required: true, decode: ->(s) {{name: s}}
   input :host, String
 
-  validates(:host, "host must be a valid ip address or %") {|host|
+  validates(:host, "must be a valid ip address or %") {|host|
     host == "%" or IPAddr.new(host) rescue nil
   }
 end
