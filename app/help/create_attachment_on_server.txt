@@ -1,0 +1,14 @@
+Usage:
+    rumm create attachment on server SERVER_ID
+
+Options:
+    -v, --volume STRING        # Name of the volume to attach
+
+Arguments:
+    SERVER_ID: STRING          # The name of the server the volume is to be attached to
+
+Description:
+    Attaches the specified volume to the named server.
+
+Examples:
+    rumm create attachment on server superordinate-struthioniformes --volume colorful-caterpillar

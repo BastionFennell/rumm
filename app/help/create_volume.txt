@@ -1,8 +1,10 @@
 Usage:
-    rumm create volume
+    rumm create volume [--name STRING] [--type SATA|SSD] [--size INTEGER]
 
 Options:
-    none
+    --name STRING              # The name to be given to the volume
+    --type SATA|SSD            # The type of volume to be created
+    --size INTEGER             # The size in GB of the volume
 
 Arguments:
     none

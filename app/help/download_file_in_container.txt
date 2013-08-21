@@ -1,0 +1,15 @@
+Usage:
+    rumm download file ID in container CONTAINER_ID [--destination PATHNAME]
+
+Options:
+    --destination: PATHNAME      # Path to download the file to
+
+Arguments:
+    ID: STRING                   # Name of the file to download
+    CONTAINER_ID: STRING         # Name of the container to store the file
+
+Description:
+    Uploads the specified file to the specified container.
+
+Examples:
+    rumm download file log.txt on container colorful-cat

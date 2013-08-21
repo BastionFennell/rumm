@@ -2,6 +2,7 @@ Usage:
     rumm create container
 
 Options:
+    -n, --name STRING                  # Name to give the new container
     none
 
 Arguments:

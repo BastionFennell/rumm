@@ -1,0 +1,15 @@
+Usage:
+    rumm show user ID on dbinstance DBINSTANCE_ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the user to destroy
+    DBINSTANCE_ID       # Name of the dbinstance the user is on
+
+Description:
+    Shows the attributes of the specified user on the given dbinstance
+
+Examples:
+    rumm show user happy-hippo on dbinstance daring-basket

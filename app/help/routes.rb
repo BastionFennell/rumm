@@ -31,7 +31,7 @@ help('destroy loadbalancer')
 
 help('show nodes on loadbalancer')
 help('show node on loadbalancer')
-help('createnode on loadbalancer')
+help('create node on loadbalancer')
 help('update node on loadbalancer')
 help('destroy node on loadbalancer')
 
@@ -50,6 +50,7 @@ help('destroy database on dbinstance')
 help('show users on dbinstance')
 help('show user on dbinstance')
 help('create user on dbinstance')
+help('destroy user on dbinstance')
 
 help('ssh')
 
@@ -73,5 +74,5 @@ help('update volume')
 help('destroy volume')
 
 help('show attachments on server')
-help('attach volume to server')
-help('detach volume from server')
+help('create attachment on server')
+help('destroy attachment on server')

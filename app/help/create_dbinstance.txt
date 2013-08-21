@@ -1,15 +1,15 @@
 Usage:
-    rumm create dbinstance
+    rumm create dbinstance [--name STRING]
 
 Options:
-    none
+    -n, --name STRING                  # Name to give the new server
 
 Arguments:
     none
 
 Description:
     Creates a new DB instance. A name for the DB instance will be
-    automatically generated.
+    automatically generated if one is not provided.
 
 Examples:
     rumm create dbinstance

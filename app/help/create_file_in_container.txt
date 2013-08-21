@@ -1,0 +1,14 @@
+Usage:
+    rumm create file in container CONTAINER_ID [--file PATHNAME]
+
+Options:
+    --file: PATHNAME             # Path to the file
+
+Arguments:
+    CONTAINER_ID: STRING         # Name of the container to store the file
+
+Description:
+    Uploads the specified file to the specified container.
+
+Examples:
+    rumm create file on container colorful-cat

@@ -1,15 +1,15 @@
 Usage:
-    rumm create database on dbinstance INSTANCE_ID
+    rumm create database on dbinstance INSTANCE_ID [--name STRING]
 
 Options:
-    none
+    -n, --name STRING           # Name to give the new database
 
 Arguments:
     INSTANCE_ID: STRING         # Name of the DB instance on which to create the database
 
 Description:
     Creates a new database on the specified DB instance. The name of the
-    database will be automatically generated.
+    database will be automatically generated if none is provided.
 
 Examples:
     rumm create database on dbinstance departmental-ichthyologist

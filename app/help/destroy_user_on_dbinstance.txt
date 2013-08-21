@@ -1,0 +1,15 @@
+Usage:
+    rumm destroy user ID on dbinstance DBINSTANCE_ID
+
+Options:
+    none
+
+Arguments:
+    ID: STRING          # Name of the user to destroy
+    DBINSTANCE_ID       # Name of the dbinstance the user is on
+
+Description:
+    This command will send a request to destroy the named user on the given dbinstance.
+
+Examples:
+    rumm destroy user happy-hippo on dbinstance daring-basket

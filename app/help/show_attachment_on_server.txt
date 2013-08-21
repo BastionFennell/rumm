@@ -1,0 +1,14 @@
+Usage:
+    rumm show attachment on server SERVER_ID
+
+Options:
+    -v, --volume STRING        # Name of the volume to attach
+
+Arguments:
+    SERVER_ID: STRING          # The name of the server the volume is to be detached from
+
+Description:
+    Detaches the specified volume from the named server.
+
+Examples:
+    rumm show attachment on server superordinate-struthioniformes --volume colorful-caterpillar

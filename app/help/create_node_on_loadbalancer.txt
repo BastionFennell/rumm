@@ -1,0 +1,17 @@
+Usage:
+    rumm create node on loadbalancer LOADBALANCER_ID [--address IPADDRESS] [--port INTEGER] [--type PRIMARY|SECONDARY] [--condition ENABLED|DISABLED|DRAINING]
+
+Options:
+    --address IPADDRESS                     # IP address for the node
+    --port INTEGER                          # Port number for what you're loadbalancing
+    --type PRIMARY|SECONDARY                # Type of node to add
+    --condition ENABLED|DISABLED|DRAINING   # Condition of the node
+
+Arguments:
+    LOADBALANCER_ID: STRING         # Name of the loadbalancer that contains the node requested
+
+Description:
+    Creates a new node on the named load balancer.
+
+Examples:
+    rumm create node on loadbalancer LOADBALANCER_ID
