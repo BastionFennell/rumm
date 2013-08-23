@@ -78,7 +78,7 @@ VCR.configure do |c|
     end
   end
   c.filter_sensitive_data("<rackspace-password>") do |interaction|
-    if interaction.response.body =~ /"password":"(\w+)"/ or interaction.request.body =~ /"password":"(\w+)"/
+    if interaction.response.body =~ /"password":"(.+)"/ or interaction.request.body =~ /"password":"(.+)"/
       $1
     else
       ENV['RACKSPACE_PASSWORD']
