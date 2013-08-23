@@ -1,0 +1,305 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://identity.api.rackspacecloud.com/v2.0/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<rackspace-username>","apiKey":"<rackspace-api-key>"}}}'
+    headers:
+      User-Agent:
+      - fog/1.12.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token: []
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/0.8.55
+      Date:
+      - Fri, 23 Aug 2013 17:22:16 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      vary:
+      - Accept, Accept-Encoding, X-Auth-Token
+      VIA:
+      - 1.0 Repose (Repose/2.3.5)
+      Content-Length:
+      - '6168'
+      Front-End-Https:
+      - 'on'
+    body:
+      encoding: UTF-8
+      string: '{"access":{"token":{"id":"<rackspace-api-token>","expires":"2013-08-24T10:37:06.604-05:00","tenant":{"id":"833532","name":"833532"},"RAX-AUTH:authenticatedBy":["APIKEY"]},"serviceCatalog":[{"name":"cloudFiles","endpoints":[{"region":"ORD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.ord1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.ord1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"SYD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.syd2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.syd2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"DFW","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.dfw1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.dfw1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"IAD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.iad3.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.iad3.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"}],"type":"object-store"},{"name":"cloudFilesCDN","endpoints":[{"region":"ORD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"SYD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn4.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"DFW","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"IAD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn5.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"}],"type":"rax:object-cdn"},{"name":"cloudBackup","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/backup.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:backup"},{"name":"cloudBlockStorage","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.blockstorage.api.rackspacecloud.com\/v1\/833532"}],"type":"volume"},{"name":"cloudServersOpenStack","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/syd.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/syd.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/ord.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/ord.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/dfw.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/dfw.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/iad.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/iad.servers.api.rackspacecloud.com\/","versionId":"2"}],"type":"compute"},{"name":"cloudMonitoring","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/monitoring.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:monitor"},{"name":"cloudDatabases","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.databases.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:database"},{"name":"cloudServers","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/servers.api.rackspacecloud.com\/v1.0\/833532","versionInfo":"https:\/\/servers.api.rackspacecloud.com\/v1.0","versionList":"https:\/\/servers.api.rackspacecloud.com\/","versionId":"1.0"}],"type":"compute"},{"name":"cloudDNS","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/dns.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:dns"},{"name":"cloudLoadBalancers","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:load-balancer"}],"user":{"id":"10038092","roles":[{"id":"10000150","description":"Checkmate
+        Access role","name":"checkmate"},{"id":"3","description":"User Admin Role.","name":"identity:user-admin"},{"tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","id":"5","description":"A
+        Role that allows a user access to keystone Service methods","name":"object-store:default"},{"tenantId":"833532","id":"6","description":"A
+        Role that allows a user access to keystone Service methods","name":"compute:default"}],"name":"<rackspace-username>","RAX-AUTH:defaultRegion":"ORD"}}}'
+    http_version: 
+  recorded_at: Fri, 23 Aug 2013 17:22:16 GMT
+- request:
+    method: get
+    uri: https://ord.blockstorage.api.rackspacecloud.com/v1/833532/volumes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog/1.12.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - <rackspace-api-token>
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Compute-Request-Id:
+      - req-87785a03-3ee9-4a56-a557-84187272f349
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '358'
+      Date:
+      - Fri, 23 Aug 2013 17:22:16 GMT
+    body:
+      encoding: UTF-8
+      string: '{"volumes": [{"status": "available", "display_name": "jumping-jellybean",
+        "attachments": [], "availability_zone": "nova", "bootable": "false", "created_at":
+        "2013-08-23T17:00:33.000000", "display_description": null, "volume_type":
+        "SATA", "snapshot_id": null, "source_volid": null, "metadata": {}, "id": "c9fefb2c-7d43-4458-8fc0-2a673790a6c8",
+        "size": 100}]}'
+    http_version: 
+  recorded_at: Fri, 23 Aug 2013 17:22:16 GMT
+- request:
+    method: post
+    uri: https://identity.api.rackspacecloud.com/v2.0/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<rackspace-username>","apiKey":"<rackspace-api-key>"}}}'
+    headers:
+      User-Agent:
+      - fog/1.12.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token: []
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/0.8.55
+      Date:
+      - Fri, 23 Aug 2013 17:22:22 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      vary:
+      - Accept, Accept-Encoding, X-Auth-Token
+      VIA:
+      - 1.0 Repose (Repose/2.3.5)
+      Content-Length:
+      - '6168'
+      Front-End-Https:
+      - 'on'
+    body:
+      encoding: UTF-8
+      string: '{"access":{"token":{"id":"<rackspace-api-token>","expires":"2013-08-24T10:37:06.604-05:00","tenant":{"id":"833532","name":"833532"},"RAX-AUTH:authenticatedBy":["APIKEY"]},"serviceCatalog":[{"name":"cloudFiles","endpoints":[{"region":"ORD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.ord1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.ord1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"SYD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.syd2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.syd2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"DFW","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.dfw1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.dfw1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"IAD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.iad3.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.iad3.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"}],"type":"object-store"},{"name":"cloudFilesCDN","endpoints":[{"region":"ORD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"SYD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn4.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"DFW","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"IAD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn5.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"}],"type":"rax:object-cdn"},{"name":"cloudBackup","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/backup.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:backup"},{"name":"cloudBlockStorage","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.blockstorage.api.rackspacecloud.com\/v1\/833532"}],"type":"volume"},{"name":"cloudServersOpenStack","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/syd.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/syd.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/ord.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/ord.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/dfw.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/dfw.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/iad.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/iad.servers.api.rackspacecloud.com\/","versionId":"2"}],"type":"compute"},{"name":"cloudMonitoring","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/monitoring.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:monitor"},{"name":"cloudDatabases","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.databases.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:database"},{"name":"cloudServers","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/servers.api.rackspacecloud.com\/v1.0\/833532","versionInfo":"https:\/\/servers.api.rackspacecloud.com\/v1.0","versionList":"https:\/\/servers.api.rackspacecloud.com\/","versionId":"1.0"}],"type":"compute"},{"name":"cloudDNS","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/dns.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:dns"},{"name":"cloudLoadBalancers","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:load-balancer"}],"user":{"id":"10038092","roles":[{"id":"10000150","description":"Checkmate
+        Access role","name":"checkmate"},{"id":"3","description":"User Admin Role.","name":"identity:user-admin"},{"tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","id":"5","description":"A
+        Role that allows a user access to keystone Service methods","name":"object-store:default"},{"tenantId":"833532","id":"6","description":"A
+        Role that allows a user access to keystone Service methods","name":"compute:default"}],"name":"<rackspace-username>","RAX-AUTH:defaultRegion":"ORD"}}}'
+    http_version: 
+  recorded_at: Fri, 23 Aug 2013 17:22:22 GMT
+- request:
+    method: get
+    uri: https://ord.servers.api.rackspacecloud.com/v2/833532/servers/detail
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog/1.12.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - <rackspace-api-token>
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Date:
+      - Fri, 23 Aug 2013 17:22:23 GMT
+      Content-Length:
+      - '2649'
+      Content-Type:
+      - application/json
+      X-Compute-Request-Id:
+      - req-59e4345b-8f82-487b-96b7-b035e4a87cf8
+      Server:
+      - Jetty(8.0.y.z-SNAPSHOT)
+    body:
+      encoding: UTF-8
+      string: '{"servers": [{"status": "ACTIVE", "updated": "2013-08-23T17:21:01Z",
+        "hostId": "ccc3240cb88e399ea3abcea0b4e3ec1f69ede72e72e7ee8cb3117759", "addresses":
+        {"public": [{"version": 4, "addr": "192.237.184.110"}, {"version": 6, "addr":
+        "2001:4801:7821:0077:aa50:10b5:ff10:dafd"}], "private": [{"version": 4, "addr":
+        "10.208.140.231"}]}, "links": [{"href": "https://ord.servers.api.rackspacecloud.com/v2/833532/servers/8430d886-f5fd-4a73-b1c3-df62d7b0adfb",
+        "rel": "self"}, {"href": "https://ord.servers.api.rackspacecloud.com/833532/servers/8430d886-f5fd-4a73-b1c3-df62d7b0adfb",
+        "rel": "bookmark"}], "key_name": null, "image": {"id": "6a668bb8-fb5d-407a-9a89-6f957bced767",
+        "links": [{"href": "https://ord.servers.api.rackspacecloud.com/833532/images/6a668bb8-fb5d-407a-9a89-6f957bced767",
+        "rel": "bookmark"}]}, "OS-EXT-STS:task_state": null, "OS-EXT-STS:vm_state":
+        "active", "flavor": {"id": "2", "links": [{"href": "https://ord.servers.api.rackspacecloud.com/833532/flavors/2",
+        "rel": "bookmark"}]}, "id": "8430d886-f5fd-4a73-b1c3-df62d7b0adfb", "user_id":
+        "10038092", "name": "silly-saffron", "created": "2013-08-23T17:12:27Z", "tenant_id":
+        "833532", "OS-DCF:diskConfig": "AUTO", "accessIPv4": "192.237.184.110", "accessIPv6":
+        "2001:4801:7821:0077:aa50:10b5:ff10:dafd", "progress": 100, "OS-EXT-STS:power_state":
+        1, "metadata": {}}, {"status": "ACTIVE", "updated": "2013-08-23T17:08:31Z",
+        "hostId": "bbb8a9cd285dcab988f4caef514638ed0890851686e358006036d476", "addresses":
+        {"public": [{"version": 4, "addr": "192.237.187.165"}, {"version": 6, "addr":
+        "2001:4801:7821:0077:aa50:10b5:ff10:81dd"}], "private": [{"version": 4, "addr":
+        "10.208.151.237"}]}, "links": [{"href": "https://ord.servers.api.rackspacecloud.com/v2/833532/servers/47931aed-1e33-4ea3-b95b-6975c23889d8",
+        "rel": "self"}, {"href": "https://ord.servers.api.rackspacecloud.com/833532/servers/47931aed-1e33-4ea3-b95b-6975c23889d8",
+        "rel": "bookmark"}], "key_name": null, "image": {"id": "6a668bb8-fb5d-407a-9a89-6f957bced767",
+        "links": [{"href": "https://ord.servers.api.rackspacecloud.com/833532/images/6a668bb8-fb5d-407a-9a89-6f957bced767",
+        "rel": "bookmark"}]}, "OS-EXT-STS:task_state": null, "OS-EXT-STS:vm_state":
+        "active", "flavor": {"id": "2", "links": [{"href": "https://ord.servers.api.rackspacecloud.com/833532/flavors/2",
+        "rel": "bookmark"}]}, "id": "47931aed-1e33-4ea3-b95b-6975c23889d8", "user_id":
+        "10038092", "name": "silly-saffron", "created": "2013-08-23T17:03:58Z", "tenant_id":
+        "833532", "OS-DCF:diskConfig": "AUTO", "accessIPv4": "192.237.187.165", "accessIPv6":
+        "2001:4801:7821:0077:aa50:10b5:ff10:81dd", "progress": 100, "OS-EXT-STS:power_state":
+        1, "metadata": {}}]}'
+    http_version: 
+  recorded_at: Fri, 23 Aug 2013 17:22:23 GMT
+- request:
+    method: post
+    uri: https://identity.api.rackspacecloud.com/v2.0/tokens
+    body:
+      encoding: UTF-8
+      string: '{"auth":{"RAX-KSKEY:apiKeyCredentials":{"username":"<rackspace-username>","apiKey":"<rackspace-api-key>"}}}'
+    headers:
+      User-Agent:
+      - fog/1.12.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token: []
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Server:
+      - nginx/0.8.55
+      Date:
+      - Fri, 23 Aug 2013 17:22:23 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - keep-alive
+      vary:
+      - Accept, Accept-Encoding, X-Auth-Token
+      VIA:
+      - 1.0 Repose (Repose/2.3.5)
+      Content-Length:
+      - '6168'
+      Front-End-Https:
+      - 'on'
+    body:
+      encoding: UTF-8
+      string: '{"access":{"token":{"id":"<rackspace-api-token>","expires":"2013-08-24T10:37:06.604-05:00","tenant":{"id":"833532","name":"833532"},"RAX-AUTH:authenticatedBy":["APIKEY"]},"serviceCatalog":[{"name":"cloudFiles","endpoints":[{"region":"ORD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.ord1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.ord1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"SYD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.syd2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.syd2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"DFW","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.dfw1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.dfw1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"IAD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/storage101.iad3.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","internalURL":"https:\/\/snet-storage101.iad3.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"}],"type":"object-store"},{"name":"cloudFilesCDN","endpoints":[{"region":"ORD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn2.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"SYD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn4.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"DFW","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn1.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"},{"region":"IAD","tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","publicURL":"https:\/\/cdn5.clouddrive.com\/v1\/MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd"}],"type":"rax:object-cdn"},{"name":"cloudDatabases","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.databases.api.rackspacecloud.com\/v1.0\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.databases.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:database"},{"name":"cloudMonitoring","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/monitoring.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:monitor"},{"name":"cloudBlockStorage","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.blockstorage.api.rackspacecloud.com\/v1\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.blockstorage.api.rackspacecloud.com\/v1\/833532"}],"type":"volume"},{"name":"cloudServersOpenStack","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/syd.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/syd.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/ord.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/ord.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/dfw.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/dfw.servers.api.rackspacecloud.com\/","versionId":"2"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.servers.api.rackspacecloud.com\/v2\/833532","versionInfo":"https:\/\/iad.servers.api.rackspacecloud.com\/v2","versionList":"https:\/\/iad.servers.api.rackspacecloud.com\/","versionId":"2"}],"type":"compute"},{"name":"cloudServers","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/servers.api.rackspacecloud.com\/v1.0\/833532","versionInfo":"https:\/\/servers.api.rackspacecloud.com\/v1.0","versionList":"https:\/\/servers.api.rackspacecloud.com\/","versionId":"1.0"}],"type":"compute"},{"name":"cloudDNS","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/dns.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:dns"},{"name":"cloudLoadBalancers","endpoints":[{"region":"SYD","tenantId":"833532","publicURL":"https:\/\/syd.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"ORD","tenantId":"833532","publicURL":"https:\/\/ord.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"DFW","tenantId":"833532","publicURL":"https:\/\/dfw.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"},{"region":"IAD","tenantId":"833532","publicURL":"https:\/\/iad.loadbalancers.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:load-balancer"},{"name":"cloudBackup","endpoints":[{"tenantId":"833532","publicURL":"https:\/\/backup.api.rackspacecloud.com\/v1.0\/833532"}],"type":"rax:backup"}],"user":{"id":"10038092","roles":[{"id":"10000150","description":"Checkmate
+        Access role","name":"checkmate"},{"id":"3","description":"User Admin Role.","name":"identity:user-admin"},{"tenantId":"MossoCloudFS_558014f8-1c3d-44b9-a771-f42ace65e8dd","id":"5","description":"A
+        Role that allows a user access to keystone Service methods","name":"object-store:default"},{"tenantId":"833532","id":"6","description":"A
+        Role that allows a user access to keystone Service methods","name":"compute:default"}],"name":"<rackspace-username>","RAX-AUTH:defaultRegion":"ORD"}}}'
+    http_version: 
+  recorded_at: Fri, 23 Aug 2013 17:22:24 GMT
+- request:
+    method: get
+    uri: https://ord.blockstorage.api.rackspacecloud.com/v1/833532/volumes
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - fog/1.12.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - <rackspace-api-token>
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      X-Compute-Request-Id:
+      - req-9e75fba4-b200-4637-bebf-4aaa69cd25f4
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '358'
+      Date:
+      - Fri, 23 Aug 2013 17:22:24 GMT
+    body:
+      encoding: UTF-8
+      string: '{"volumes": [{"status": "available", "display_name": "jumping-jellybean",
+        "attachments": [], "availability_zone": "nova", "bootable": "false", "created_at":
+        "2013-08-23T17:00:33.000000", "display_description": null, "volume_type":
+        "SATA", "snapshot_id": null, "source_volid": null, "metadata": {}, "id": "c9fefb2c-7d43-4458-8fc0-2a673790a6c8",
+        "size": 100}]}'
+    http_version: 
+  recorded_at: Fri, 23 Aug 2013 17:22:24 GMT
+- request:
+    method: post
+    uri: https://ord.servers.api.rackspacecloud.com/v2/833532/servers/8430d886-f5fd-4a73-b1c3-df62d7b0adfb/os-volume_attachments
+    body:
+      encoding: UTF-8
+      string: '{"volumeAttachment":{"volumeId":"c9fefb2c-7d43-4458-8fc0-2a673790a6c8"}}'
+    headers:
+      User-Agent:
+      - fog/1.12.1
+      Content-Type:
+      - application/json
+      Accept:
+      - application/json
+      X-Auth-Token:
+      - <rackspace-api-token>
+  response:
+    status:
+      code: 200
+      message: 
+    headers:
+      Date:
+      - Fri, 23 Aug 2013 17:22:26 GMT
+      Content-Length:
+      - '195'
+      Content-Type:
+      - application/json
+      X-Compute-Request-Id:
+      - req-9d57b828-68a9-4e54-88c2-7089f0fe414d
+      Server:
+      - Jetty(8.0.y.z-SNAPSHOT)
+    body:
+      encoding: UTF-8
+      string: '{"volumeAttachment": {"device": "/dev/xvdb", "serverId": "8430d886-f5fd-4a73-b1c3-df62d7b0adfb",
+        "id": "c9fefb2c-7d43-4458-8fc0-2a673790a6c8", "volumeId": "c9fefb2c-7d43-4458-8fc0-2a673790a6c8"}}'
+    http_version: 
+  recorded_at: Fri, 23 Aug 2013 17:22:26 GMT
+recorded_with: VCR 2.5.0
