@@ -27,7 +27,7 @@ end
 RSpec.configure do |config|
   config.color_enabled = true
   config.include Aruba::Api, :example_group => {
-      :file_path => /spec\/features/
+    :file_path => /spec\/features/
   }
   config.include Rumm::SpecHelper
 
@@ -70,11 +70,19 @@ VCR.configure do |c|
   #c.debug_logger = $stderr
 
   c.cassette_library_dir = 'spec/fixtures/cassettes'
-  c.filter_sensitive_data("<rackspace-username>") do
-    ENV['RACKSPACE_USERNAME']
+  c.filter_sensitive_data("<rackspace-username>") do |interaction|
+    if interaction.response.body =~ /"username":"(\w+)"/ or interaction.request.body =~ /"username":"(\w+)"/
+      $1
+    else
+      ENV['RACKSPACE_USERNAME']
+    end
   end
-  c.filter_sensitive_data("<rackspace-password>") do
-    ENV['RACKSPACE_PASSWORD']
+  c.filter_sensitive_data("<rackspace-password>") do |interaction|
+    if interaction.response.body =~ /"password":"(\w+)"/ or interaction.request.body =~ /"password":"(\w+)"/
+      $1
+    else
+      ENV['RACKSPACE_PASSWORD']
+    end
   end
   c.filter_sensitive_data("<rackspace-api-token>") do |interaction|
     if interaction.response.body =~ /"token":{"id":"(\w+)"/
@@ -84,7 +92,7 @@ VCR.configure do |c|
     end
   end
   c.filter_sensitive_data("<rackspace-api-key>") do |interaction|
-    if interaction.response.body =~ /"apiKey":"(\w+)"/
+    if interaction.response.body =~ /"apiKey":"(\w+)"/ or interaction.request.body =~ /"apiKey":"(\w+)"/
       $1
     else
       ENV['RACKSPACE_API_KEY']
@@ -98,7 +106,7 @@ require_relative "../app"
 Aruba.process = Aruba::InProcess
 class Aruba::InProcess
   attr_reader :stdin
-  
+
   def self.main_class;
     @@main_class;
   end
