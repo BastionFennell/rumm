@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe "using the containers api" do
+describe "using the instance api" do
 
   include_context "netrc"
 
