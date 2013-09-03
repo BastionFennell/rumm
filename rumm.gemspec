@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["cowboyd@thefrontside.net"]
   spec.description   = %q{Lift heavy things inside your Rackspace}
   spec.summary       = %q{CLI and API for managing Rackspace infrastructure}
-  spec.homepage      = "https://github.com/rackerlabs/rumm"
+  spec.homepage      = "https://github.com/rackspace/rumm"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -21,6 +21,6 @@ Gem::Specification.new do |spec|
   spec.required_ruby_version = ">= 1.9.3"
 
   spec.add_dependency "mvcli", "~> 0.0.16"
-  spec.add_dependency "fog", "~> 1.12.0"
+  spec.add_dependency "fog", "~> 1.15.0"
   spec.add_dependency "netrc"
 end
