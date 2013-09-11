@@ -43,10 +43,6 @@ class ServersController < MVCLI::Controller
     index.find {|s| s.name == params[:id]} or fail Fog::Errors::NotFound
   end
 
-  def generate_name
-    'divine-reef'
-  end
-
   def ssh
     test = server
     ip_address = test.ipv4_address
