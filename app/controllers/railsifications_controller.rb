@@ -43,15 +43,29 @@ class RailsificationsController < MVCLI::Controller
   private
 
   def execute(cmd)
-    Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
-      while line = stdout.gets
-        command.output.puts "   " + line
+    bundle_clean_env {
+      Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
+        while line = stdout.gets
+          command.output.puts "   " + line
+        end
+        exit_status = wait_thr.value
+        unless exit_status.success?
+          abort "FAILED !!! #{cmd}"
+        end
       end
-      exit_status = wait_thr.value
-      unless exit_status.success?
-        abort "FAILED !!! #{cmd}"
-      end
-    end
+    }
+  end
+
+  def bundle_clean_env
+    gemfile = ENV['BUNDLE_GEMFILE']
+    bin_path = ENV['BUNDLE_BIN_PATH']
+    ENV.delete 'BUNDLE_GEMFILE'
+    ENV.delete 'BUNDLE_BIN_PATH'
+    yield
+  ensure
+    ENV['BUNDLE_GEMFILE'] = gemfile
+    ENV['BUNDLE_BIN_PATH'] = bin_path
+    true
   end
 
   def server
