@@ -5,7 +5,7 @@ Options:
     none
 
 Arguments:
-    ID: STRING                       # ID of the node to show
+    ID: STRING                       # ID of the node to destroy
     LOADBALANCER_ID: STRING          # Name of the loadbalancer that contains the node requested
 
 Description:

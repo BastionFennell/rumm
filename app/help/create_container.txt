@@ -3,7 +3,6 @@ Usage:
 
 Options:
     -n, --name STRING                  # Name to give the new container
-    none
 
 Arguments:
     none
