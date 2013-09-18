@@ -5,8 +5,10 @@ http_interactions:
     uri: https://identity.api.rackspacecloud.com/v2.0/tokens
     body:
       encoding: UTF-8
-      string: '{"auth":{"passwordCredentials":{"username":"<rackspace-username>","password":"<rackspace-username>"}}}'
+      string: '{"auth":{"passwordCredentials":{"username":"<rackspace-password>","password":"<rackspace-password>"}}}'
     headers:
+      User-Agent:
+      - excon/0.25.3
       Content-Type:
       - application/json
   response:
@@ -17,7 +19,7 @@ http_interactions:
       Server:
       - nginx/0.8.55
       Date:
-      - Fri, 23 Aug 2013 16:56:53 GMT
+      - Wed, 18 Sep 2013 18:57:11 GMT
       Content-Type:
       - application/json
       Transfer-Encoding:
@@ -33,5 +35,5 @@ http_interactions:
       string: '{"unauthorized":{"code":401,"message":"Unable to authenticate user
         with credentials provided."}}'
     http_version: 
-  recorded_at: Fri, 23 Aug 2013 16:56:53 GMT
+  recorded_at: Wed, 18 Sep 2013 18:57:11 GMT
 recorded_with: VCR 2.5.0
