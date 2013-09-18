@@ -1,5 +1,5 @@
 Usage:
-    rumm railsify server id
+    rumm railsify server ID
 
 Options:
     none

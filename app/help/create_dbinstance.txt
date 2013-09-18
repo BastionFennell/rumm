@@ -2,7 +2,7 @@ Usage:
     rumm create dbinstance [--name STRING]
 
 Options:
-    -n, --name STRING                  # Name to give the new server
+    -n, --name STRING                  # Name to give the new dbinstance
 
 Arguments:
     none
