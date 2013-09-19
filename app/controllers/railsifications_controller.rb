@@ -18,7 +18,7 @@ class RailsificationsController < MVCLI::Controller
         f.puts 'gem "knife-solo", ">= 0.3.0pre3"'
         f.puts 'gem "berkshelf"'
       end
-      execute "bundle install --binstubs"
+      Bundler.with_clean_env { execute "bundle install --binstubs" }
       execute "bin/knife solo init ."
       File.open 'Berksfile', 'w' do |f|
         f.puts "site :opscode"
@@ -43,29 +43,15 @@ class RailsificationsController < MVCLI::Controller
   private
 
   def execute(cmd)
-    bundle_clean_env {
-      Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
-        while line = stdout.gets
-          command.output.puts "   " + line
-        end
-        exit_status = wait_thr.value
-        unless exit_status.success?
-          abort "FAILED !!! #{cmd}"
-        end
+    Open3.popen3(cmd) do |stdin, stdout, stderr, wait_thr|
+      while line = stdout.gets
+        command.output.puts "   " + line
       end
-    }
-  end
-
-  def bundle_clean_env
-    gemfile = ENV['BUNDLE_GEMFILE']
-    bin_path = ENV['BUNDLE_BIN_PATH']
-    ENV.delete 'BUNDLE_GEMFILE'
-    ENV.delete 'BUNDLE_BIN_PATH'
-    yield
-  ensure
-    ENV['BUNDLE_GEMFILE'] = gemfile
-    ENV['BUNDLE_BIN_PATH'] = bin_path
-    true
+      exit_status = wait_thr.value
+      unless exit_status.success?
+        abort "FAILED !!! #{cmd}"
+      end
+    end
   end
 
   def server
