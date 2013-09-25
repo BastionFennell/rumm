@@ -1,5 +1,6 @@
 class UsersController < MVCLI::Controller
   requires :instances
+  requires :users
   requires :command
 
   def index
@@ -13,6 +14,20 @@ class UsersController < MVCLI::Controller
     form.validate!
     instance.users.create form.value
   end
+
+  def show
+    list = users
+    list.instance = instance
+    list.all.find { |u| u.name == params[:id] } or fail Fog::Errors::NotFound
+  end
+
+  def destroy
+    list = users
+    list.instance = instance
+    user = list.all.find { |u| u.name == params[:id] }
+    user.destroy or fail Fog::Errors::NotFound
+  end
+
 
   private
 

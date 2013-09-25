@@ -1,5 +1,6 @@
 require "tmpdir"
 require "open3"
+require "bundler"
 
 class RailsificationsController < MVCLI::Controller
   requires :compute
@@ -18,7 +19,7 @@ class RailsificationsController < MVCLI::Controller
         f.puts 'gem "knife-solo", ">= 0.3.0pre3"'
         f.puts 'gem "berkshelf"'
       end
-      execute "bundle install --binstubs"
+      Bundler.with_clean_env { execute "bundle install --binstubs" }
       execute "bin/knife solo init ."
       File.open 'Berksfile', 'w' do |f|
         f.puts "site :opscode"

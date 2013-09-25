@@ -1,0 +1,19 @@
+Usage:
+    rumm update server ID  [--name STRING] [--ipv4 IPV4] [--ipv6 IPV6]
+
+
+Arguments:
+    ID: STRING          # Name of the server to update
+
+Options:
+    --name: STRING      # The name you want to change the server to
+    --ipv4: IPV4        # The ip you want to change the server to
+    --ipv6: IPV6        # The ip you want to change the server to
+
+Description:
+    Updates the given server to the new values by updating and changing the
+    name, ipv4, or ipv6. It only updates the values if they're given in the
+    command.
+
+Examples:
+    rumm update server silly-saffron --name sad-saffron

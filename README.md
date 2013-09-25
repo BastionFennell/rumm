@@ -1,8 +1,8 @@
 ## Rumm: a tasty tool for hackers and pirates
 
 [![Gem Version](https://badge.fury.io/rb/rumm.png)](http://badge.fury.io/rb/rumm)
-[![Build Status](https://travis-ci.org/rackerlabs/rumm.png?branch=master)](https://travis-ci.org/rackerlabs/rumm)
-[![Dependency Status](https://gemnasium.com/rackerlabs/rumm.png)](https://gemnasium.com/rackerlabs/rumm)
+[![Build Status](https://travis-ci.org/rackspace/rumm.png?branch=master)](https://travis-ci.org/rackspace/rumm)
+[![Dependency Status](https://gemnasium.com/rackspace/rumm.png)](https://gemnasium.com/rackspace/rumm)
 
 
 Rumm is a command line interface and API to rackspace. You can use it

@@ -7,9 +7,10 @@ class AuthenticationController < MVCLI::Controller
 
   requires :user
   requires :configuration
+  requires :login_information
 
   def login
-    login_info = user
+    login_info = login_information
     username = login_info.name
     password = login_info.password
 
