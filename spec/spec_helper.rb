@@ -53,6 +53,18 @@ shared_context "netrc" do
       end
     end
   end
+  include_context "set home"
+end
+
+shared_context "set fake home" do
+  Given(:home) {Pathname(set_env "HOME", "#{File.expand_path(current_dir)}/tmp")}
+
+  after do
+    restore_env
+  end
+
+end
+shared_context "set home" do
 
   Given(:home) {Pathname(set_env "HOME", File.expand_path(current_dir))}
 
