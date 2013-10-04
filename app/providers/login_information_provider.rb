@@ -1,6 +1,6 @@
 require 'io/console'
 
-class UserProvider
+class LoginInformationProvider
   requires :command
   requires :configuration
 

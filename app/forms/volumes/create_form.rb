@@ -5,6 +5,5 @@ class Volumes::CreateForm < MVCLI::Form
   input :type, String, default: "SATA"
   input :size, Integer, default: 100
 
-  validates(:type, "must either be SATA or SSD"){ |type| type == "SATA" or "SSD" }
-  validates(:size, "must be between 100 and 1024"){ |size| (100..1024) === size }
+  validates(:type, "must either be SATA or SSD") { |type| type == "SATA" or "SSD" }
 end

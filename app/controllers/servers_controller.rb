@@ -31,6 +31,20 @@ class ServersController < MVCLI::Controller
     return server
   end
 
+  def update
+    template = Servers::UpdateForm
+    argv = MVCLI::Argv.new command.argv
+    form = template.new argv.options
+    form.validate!
+
+    unupdated_server = server
+    unupdated_server.name = form.name unless form.name == nil
+    unupdated_server.ipv4_address = form.ipv4 unless form.ipv4 == nil
+    unupdated_server.ipv6_address = form.ipv6 unless form.ipv6 == nil
+
+    unupdated_server.update
+  end
+
   def destroy
     server.tap do |s|
       s.destroy
@@ -41,10 +55,6 @@ class ServersController < MVCLI::Controller
 
   def server
     index.find {|s| s.name == params[:id]} or fail Fog::Errors::NotFound
-  end
-
-  def generate_name
-    'divine-reef'
   end
 
   def ssh

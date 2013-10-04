@@ -5,7 +5,7 @@ Options:
     none
 
 Arguments:
-    ID: STRING          # Name of the server to play
+    ID: STRING          # Name of the server to show
 
 Description:
     Shows the attributes of the sever with the name specified by ID.

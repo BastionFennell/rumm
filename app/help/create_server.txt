@@ -1,5 +1,5 @@
 Usage:
-    rumm create server [--name STRING] [--image-id STRING] [--flavor-id STRING] [--ssh-private STRING] [--ssh-publinc STRING]
+    rumm create server [--name STRING] [--image-id STRING] [--flavor-id STRING] [--ssh-private STRING] [--ssh-public STRING]
 
 Options:
     -n, --name STRING                  # Name to give the new server
