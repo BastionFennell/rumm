@@ -7,9 +7,7 @@ describe "configuration" do
     context "should be initialized with defaults" do
       include_context "set fake home"
       Given(:configuration) { ConfigurationProvider.new.value }
-      #won't reset home without this?
-      Then { home == home }
-      And { configuration.region.should == :ord }
+      Then { configuration.region.should == :ord }
       And { configuration.username.should == nil }
       And { configuration.api_key.should == nil}
     end
@@ -136,8 +134,6 @@ describe "configuration" do
       ConfigurationProvider.new.value
     end
     When do
-      #Won't reset home without this?
-      home == home
       configuration.username = "unclebob"
       configuration.reload.should be_false
     end
