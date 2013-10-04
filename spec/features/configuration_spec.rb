@@ -104,20 +104,17 @@ describe "configuration" do
     describe "delete" do
       context "should delete file if it exists and revert to default configuration" do
         Given(:configuration) { ConfigurationProvider.new.value }
-        Given { File.stub :delete }
+        Given { File.should_receive(:delete).with "#{File.expand_path(current_dir)}/.rummrc" }
         When { configuration.delete }
-        #returning ENV['REGION'] below
         Then { configuration.region.should == :ord }
         And { configuration.username.should == nil }
         And { configuration.api_key.should == nil }
-        # And { File.should_recieve(:delete).with "#{File.expand_path(current_dir)}/.rummrc"}
       end
       context "should not delete file if it does not exist" do
         Given(:configuration) { ConfigurationProvider.new.value }
         Given { File.stub(:exists?).with("#{File.expand_path(current_dir)}/.rummrc").and_return(false)}
         Given { File.stub(:delete).never }
         When { configuration.delete.should be_true }
-        #Still returning ENV['REGION']
         Then { configuration.region.should == :ord }
         And { configuration.username.should == nil }
         And { configuration.api_key.should == nil }
