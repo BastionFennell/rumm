@@ -46,8 +46,23 @@ describe "logging in" do
   end
 
   context "with invalid credentials"
+  When do
+    VCR.use_cassette('authentication/unsuccessful-login') do
+      will_type "nil"
+      will_type "nil"
+      will_type "nil"
+      run_interactive "rumm login"
+      stop_process @interactive
+    end
+  end
+  Then {last_exit_status != 0}
+  And {all_stderr =~ /User could not be authenticated/}
 
-  context "after previous successful login"
+  context "deletes .rummrc" do
+    Then { !File.exists? "#{File.expand_path('~')}/.rummrc" }
+  end 
+end
+context "after previous successful login"
 
-  context "logging out"
+context "logging out"
 end
