@@ -10,6 +10,7 @@ describe "logging in" do
     Given(:region) { "ord"}
 
     When do
+      run "rumm logout"
       VCR.use_cassette('authentication/successful-login') do
         if VCR.current_cassette.recording?
           print "\nUsername: "
@@ -45,24 +46,30 @@ describe "logging in" do
     Then { region == json["region"] }
   end
 
-  context "with invalid credentials"
-  When do
-    VCR.use_cassette('authentication/unsuccessful-login') do
-      will_type "nil"
-      will_type "nil"
-      will_type "nil"
-      run_interactive "rumm login"
-      stop_process @interactive
+  context "with invalid credentials" do
+    When do
+      VCR.use_cassette('authentication/unsuccessful-login') do
+        will_type "nil"
+        will_type "nil"
+        will_type "nil"
+        run_interactive "rumm login"
+        stop_process @interactive
+      end
     end
+    Then {last_exit_status != 0}
+    And {all_stderr =~ /User could not be authenticated/}
   end
-  Then {last_exit_status != 0}
-  And {all_stderr =~ /User could not be authenticated/}
 
+  context "after previous successful login"
+
+end
+
+
+describe "logging out" do
+
+  When { run "rumm logout" }
+  Then { last_exit_status == 0 }
   context "deletes .rummrc" do
     Then { !File.exists? "#{File.expand_path('~')}/.rummrc" }
-  end 
-end
-context "after previous successful login"
-
-context "logging out"
+  end
 end
