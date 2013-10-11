@@ -1,5 +1,3 @@
-require 'rumm/configuration'
-
 class CredentialsProvider
   
   requires :configuration
