@@ -1,10 +1,10 @@
-require 'netrc'
-
 class CredentialsProvider
+  
+  requires :configuration
 
   def value
-    if creds = Netrc.read['api.rackspace.com']
-      Map(username: creds.first, api_key: creds.last, rackspace_region: :ord)
+    if configuration.username
+      Map(username: configuration.username, api_key: configuration.api_key, rackspace_region: configuration.region)
     else
       fail Rumm::LoginRequired, "login required"
     end

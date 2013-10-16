@@ -5,6 +5,8 @@ require "excon"
 
 class AuthenticationController < MVCLI::Controller
 
+  requires :user
+  requires :configuration
   requires :login_information
 
   def login
@@ -12,8 +14,9 @@ class AuthenticationController < MVCLI::Controller
     username = login_info.name
     password = login_info.password
 
-    connection = Excon.new('https://identity.api.rackspacecloud.com')
-
+    uri = URI.parse(configuration.auth_endpoint)
+    connection = Excon.new(uri.to_s)
+    
     headers = {'Content-Type' => 'application/json'}
     body = {auth: {passwordCredentials: {username: username, password: password}}}
 
@@ -30,16 +33,15 @@ class AuthenticationController < MVCLI::Controller
 
     user_credentials = Map(JSON.parse response.body)
 
-    netrc = Netrc.read
-    netrc['api.rackspace.com'] = username, user_credentials["RAX-KSKEY:apiKeyCredentials"].apiKey
-    netrc.save
-
+    configuration.username = username
+    configuration.api_key = user_credentials["RAX-KSKEY:apiKeyCredentials"].apiKey
+    configuration.region = login_info.region
+    configuration.save
+    
     user_info
   end
 
   def logout
-    n = Netrc.read
-    n.delete 'api.rackspace.com'
-    n.save
+    configuration.delete
   end
 end

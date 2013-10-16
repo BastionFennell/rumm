@@ -45,18 +45,27 @@ end
 
 shared_context "netrc" do
   before do
-    if netrc = Netrc.read['api.rackspace.com']
-      login, api_token = netrc
+    if File.exists? "#{File.expand_path('~')}/.rummrc"
+      FileUtils.copy_file "#{File.expand_path('~')}/.rummrc", home.join('.rummrc')
     else
-      login, api_token = '<rackspace-username>', '<rackspace-api-token>'
-    end
-    File.open(home.join('.netrc'), "w") do |f|
-      f.chmod 0600
-      f.puts "machine api.rackspace.com"
-      f.puts "  login #{login}"
-      f.puts "  password #{api_token}"
+      File.open(home.join('.rummrc'), "w") do |f|
+        f.puts "{\"environments\":{\"default\":{\"region\":\"ord\",\"username\":\"<rackspace_username>\",\"api_key\":\"<rackspace_api_key>\"}}}"
+      end
     end
   end
+  include_context "set home"
+end
+
+shared_context "set fake home" do
+  Given(:home) {Pathname(set_env "HOME", "#{File.expand_path(current_dir)}/tmp")}
+
+  after do
+    restore_env
+  end
+
+end
+shared_context "set home" do
+
   Given(:home) {Pathname(set_env "HOME", File.expand_path(current_dir))}
 
   after do

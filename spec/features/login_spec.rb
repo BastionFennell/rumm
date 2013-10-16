@@ -1,14 +1,16 @@
 require "spec_helper"
-require "netrc"
 require 'io/console'
 
 describe "logging in" do
-  include_context "netrc"
   before do
     run "rumm logout"
   end
-  context "interactively with valid credentials" do
+
+  context "with valid credentials" do
+    Given(:region) { "ord"}
+
     When do
+      run "rumm logout"
       VCR.use_cassette('authentication/successful-login') do
         if VCR.current_cassette.recording?
           print "\nUsername: "
@@ -16,46 +18,58 @@ describe "logging in" do
           print "Password: "
           password = $stdin.noecho(&:gets).chomp
         end
-        will_type username || "<username>"
-        will_type password || "<password>"
+        @username = username || "<username>"
+        will_type(@username)
+        will_type(password || "<password>")
+        will_type region
         run_interactive "rumm login"
         stop_process @interactive
       end
     end
-    Then {last_exit_status == 0}
 
-    context "places your login credentials in your .netrc" do
-      Given(:netrc) { Netrc.read["api.rackspace.com"] }
-      Given(:user) {netrc.first}
-      Given(:password) {netrc.last}
+    Then { last_exit_status == 0 }
 
-      Then { user != nil }
-      And { password != nil }
-    end
+    Given(:config_file_path) {
+      File.expand_path("~/.rummrc")
+    }
+
+    Then { File.exists?(config_file_path) }
+
+    Given(:json) {
+      File.open(config_file_path) do |f|
+        JSON.load(f)["environments"]["default"]
+      end
+    }
+
+    Then { @username == json["username"] }
+    Then { json["api_key"] }
+    Then { region == json["region"] }
   end
 
-  context "logging out" do
-    When {run "rumm logout"}
-    Then {last_exit_status == 0}
+  context "with invalid credentials" do
+    When do
+      VCR.use_cassette('authentication/unsuccessful-login') do
+        will_type "nil"
+        will_type "nil"
+        will_type "nil"
+        run_interactive "rumm login"
+        stop_process @interactive
+      end
+    end
+    Then {last_exit_status != 0}
+    And {all_stderr =~ /User could not be authenticated/}
+  end
 
-    context "removes your login credentials from .netrc" do
-      Then do
-        n = Netrc.read
-        user, pass = n["api.rackspace.com"]
-        user == nil and pass == nil
-      end
-    end
-    context "interactively with invalid credentials" do
-      When do
-        VCR.use_cassette("authentication/unsuccessful-login") do
-          will_type "nil"
-          will_type "nil"
-          run_interactive "rum login"
-          stop_process @interactive
-        end
-      end
-      Then {last_exit_status != 0}
-      And {all_stderr =~ /User could not be authenticated/}
-    end
+  context "after previous successful login"
+
+end
+
+
+describe "logging out" do
+
+  When { run "rumm logout" }
+  Then { last_exit_status == 0 }
+  context "deletes .rummrc" do
+    Then { !File.exists? "#{File.expand_path('~')}/.rummrc" }
   end
 end
