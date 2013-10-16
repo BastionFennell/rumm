@@ -14,29 +14,31 @@ class RailsificationsController < MVCLI::Controller
     tmpdir = Pathname(Dir.tmpdir).join 'chef_kitchen'
     FileUtils.mkdir_p tmpdir
     Dir.chdir tmpdir do
-      File.open('Gemfile', 'w') do |f|
-        f.puts 'source "https://rubygems.org"'
-        f.puts 'gem "knife-solo", ">= 0.3.0pre3"'
-        f.puts 'gem "berkshelf"'
-      end
-      Bundler.with_clean_env { execute "bundle install --binstubs" }
-      execute "bin/knife solo init ."
-      File.open 'Berksfile', 'w' do |f|
-        f.puts "site :opscode"
-        f.puts ""
-        f.puts "cookbook 'runit', '>= 1.1.2'"
-        f.puts "cookbook 'rackbox', github: 'hayesmp/rackbox-cookbook'"
-      end
-      execute "bin/berks install --path cookbooks/"
-      execute "bin/knife solo prepare root@#{server.ipv4_address}"
-      File.open('nodes/host.json', 'w') do |f|
-        f.puts('{"run_list":["rackbox"],"rackbox":{"apps":{"unicorn":[{"appname":"app1","hostname":"app1"}]},"ruby":{"global_version":"2.0.0-p195","versions":["2.0.0-p195"]}}}')
-      end
+      Bundler.with_clean_env do
+        File.open('Gemfile', 'w') do |f|
+          f.puts 'source "https://rubygems.org"'
+          f.puts 'gem "knife-solo", ">= 0.3.0pre3"'
+          f.puts 'gem "berkshelf"'
+        end
+        execute "bundle install --binstubs"
+        execute "bin/knife solo init ."
+        File.open 'Berksfile', 'w' do |f|
+          f.puts "site :opscode"
+          f.puts ""
+          f.puts "cookbook 'runit', '>= 1.1.2'"
+          f.puts "cookbook 'rackbox', github: 'hayesmp/rackbox-cookbook'"
+        end
+        execute "bin/berks install --path cookbooks/"
+        execute "bin/knife solo prepare root@#{server.ipv4_address}"
+        File.open('nodes/host.json', 'w') do |f|
+          f.puts('{"run_list":["rackbox"],"rackbox":{"apps":{"unicorn":[{"appname":"app1","hostname":"app1"}]},"ruby":{"global_version":"2.0.0-p195","versions":["2.0.0-p195"]}}}')
+        end
 
-      FileUtils.rm_rf "#{server.ipv4_address}.json"
-      FileUtils.mv "nodes/host.json", "nodes/#{server.ipv4_address}.json"
+        FileUtils.rm_rf "#{server.ipv4_address}.json"
+        FileUtils.mv "nodes/host.json", "nodes/#{server.ipv4_address}.json"
 
-      execute "bin/knife solo cook root@#{server.ipv4_address}"
+        execute "bin/knife solo cook root@#{server.ipv4_address}"
+      end
     end
     return server
   end
