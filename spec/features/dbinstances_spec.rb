@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "using the instance api" do
 
-  include_context "netrc"
+  include_context "rummrc"
 
   context "to create" do
     When { VCR.use_cassette('instances/create') { run "rumm create dbinstance --name dancing-idol" }}

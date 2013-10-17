@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "using the nodes api" do
   $id = "test"
-  include_context "netrc"
+  include_context "rummrc"
 
   context "to create" do
     When { VCR.use_cassette('nodes/create') { run "rumm create node on loadbalancer laughing-barrel --address 198.61.221.220 --condition ENABLED --port: 80" }}

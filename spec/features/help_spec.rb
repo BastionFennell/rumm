@@ -14,7 +14,7 @@ describe "interactive learning" do
     #     rumm login
     #     Username: rsteveson
     #     Password: ******
-    #     logged in as rstevenson, credentials written to ~/.netrc
+    #     logged in as rstevenson, credentials written to ~/.rummrc
     #
     #   And you're good to go! The following commands are available in your Rumm
     #   environment:

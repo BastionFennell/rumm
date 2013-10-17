@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "using the files api" do
 
-  include_context "netrc"
+  include_context "rummrc"
 
   context "to create" do
     Given do

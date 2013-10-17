@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "using the databases api" do
-  include_context "netrc"
+  include_context "rummrc"
 
   context "to create" do
     When { VCR.use_cassette('databases/create') { run "rumm create database on dbinstance decided-irony --name dancing-bear" }}

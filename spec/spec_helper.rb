@@ -2,7 +2,6 @@ require "rumm"
 require "vcr"
 require "aruba/api"
 require "rspec-given"
-require "netrc"
 $: << File.expand_path("../../app/providers", __FILE__)
 
 module Rumm::SpecHelper
@@ -43,7 +42,7 @@ RSpec.configure do |config|
   end
 end
 
-shared_context "netrc" do
+shared_context "rummrc" do
   before do
     if File.exists? "#{File.expand_path('~')}/.rummrc"
       FileUtils.copy_file "#{File.expand_path('~')}/.rummrc", home.join('.rummrc')

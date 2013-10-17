@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "using the containers api" do
 
-  include_context "netrc"
+  include_context "rummrc"
 
   context "to create" do
     When { VCR.use_cassette('containers/create') { run "rumm create container --name cruising-crouton" }}

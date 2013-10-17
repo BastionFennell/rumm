@@ -3,7 +3,7 @@ require "spec_helper"
 describe "using the attachments api" do
   context "with credentials are present" do
 
-    include_context "netrc"
+    include_context "rummrc"
 
     context "to create" do
       When { VCR.use_cassette('attachments/create') { run "rumm create attachment on server silly-saffron --volume jumping-jellybean" }}

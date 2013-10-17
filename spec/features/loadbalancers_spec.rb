@@ -2,7 +2,7 @@ require "spec_helper"
 
 describe "using the load balancers api" do
 
-  include_context "netrc"
+  include_context "rummrc"
 
   context "to create" do
     When { VCR.use_cassette('loadbalancers/create') { run "rumm create loadbalancer --name likable-bear --node 166.78.114.25:80" }}

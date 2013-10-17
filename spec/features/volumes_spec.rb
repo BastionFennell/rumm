@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "using the volumes api" do
-  include_context "netrc"
+  include_context "rummrc"
 
   context "to create" do
     When { VCR.use_cassette('volumes/create') { run "rumm create volume --name vaulting-vigilante" }}

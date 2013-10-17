@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe "using the users api" do
-  include_context "netrc"
+  include_context "rummrc"
 
   context "to create" do
     When { VCR.use_cassette('users/create') { run "rumm create user on dbinstance decided-irony --name test --password test --database dependable-bottom" }}
