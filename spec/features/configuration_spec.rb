@@ -7,7 +7,7 @@ describe "configuration" do
     context "should be initialized with defaults" do
       include_context "set fake home"
       Given(:configuration) { ConfigurationProvider.new.value }
-      Then { configuration.region.should == :ord }
+      Then { configuration.region.should == 'ord' }
       And { configuration.username.should == nil }
       And { configuration.api_key.should == nil}
     end
@@ -29,18 +29,18 @@ describe "configuration" do
     end
 
     # Cleanup
-    #File.delete "#{@rumm_dir}/.rummrc" if File.exists? "#{@rumm_dir}/.rummrc"
+    # File.delete "#{@rumm_dir}/.rummrc" if File.exists? "#{@rumm_dir}/.rummrc"
     describe "region" do
       When { ENV['REGION'] = "SYD" }
       context "should be overridable with REGION environment var" do
-        Then { configuration.region.should == "SYD" }
+        Then { configuration.region.should == "syd" }
       end
     end
 
     #Clean up
-    ENV['REGION'] = nil
 
     describe "lon_region?" do
+      When { ENV['REGION'] = nil }
       Given(:configuration) { ConfigurationProvider.new.value }
       When { configuration.region = region }
 
@@ -104,7 +104,7 @@ describe "configuration" do
         Given(:configuration) { ConfigurationProvider.new.value }
         Given { File.should_receive(:delete).with "#{File.expand_path(current_dir)}/.rummrc" }
         When { configuration.delete }
-        Then { configuration.region.should == :ord }
+        Then { configuration.region.should == 'ord' }
         And { configuration.username.should == nil }
         And { configuration.api_key.should == nil }
       end
@@ -113,7 +113,7 @@ describe "configuration" do
         Given { File.stub(:exists?).with("#{File.expand_path(current_dir)}/.rummrc").and_return(false)}
         Given { File.stub(:delete).never }
         When { configuration.delete.should be_true }
-        Then { configuration.region.should == :ord }
+        Then { configuration.region.should == 'ord' }
         And { configuration.username.should == nil }
         And { configuration.api_key.should == nil }
       end

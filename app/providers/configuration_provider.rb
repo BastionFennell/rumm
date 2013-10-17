@@ -36,11 +36,11 @@ require 'fog'
     end
 
     def region
-      ENV['REGION'] || self['region']
+      region_to_str(ENV['REGION'] || self['region'])
     end
 
     def lon_region?
-      !self[:region].nil? && self[:region].to_s.downcase == "lon"
+      region == "lon"
     end
 
     def auth_endpoint
@@ -92,6 +92,10 @@ require 'fog'
     end
 
     private
+
+    def region_to_str(str)
+      str ? str.to_s.downcase : nil
+    end
 
     def defaults
       { "environments" => {
