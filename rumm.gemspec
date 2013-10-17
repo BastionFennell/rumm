@@ -22,5 +22,4 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "mvcli", "~> 0.0.16"
   spec.add_dependency "fog", "~> 1.15.0"
-  spec.add_dependency "netrc"
 end
