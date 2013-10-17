@@ -16,7 +16,9 @@ Authenticate with rackspace using your cloud credentials as follows:
     rumm login
       username: joe
       password: ****
-      logged in, credentials written to ~/.netrc
+      Default Region (Enter for ord):
+
+      logged in as joe, credentials written to ~/.rummrc
       
 
 Now we can see the list of servers we have available:
@@ -34,6 +36,12 @@ Create the server:
 For further help, including a full listing of commands, type:
 
     rumm help
+
+To access servers outside of your default region, you can prefix your rumm command with REGION=<region name>.
+
+For example to list servers in IAD you would execute the following:
+
+REGION=iad rumm show servers
 
 ## Further Reading
 
